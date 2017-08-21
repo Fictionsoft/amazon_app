@@ -97,11 +97,11 @@ class JobsController extends AppController {
                $this->create_assign_job($job_id);
 
                // delete worker jobs
-               /*$prefix = $this->WorkerJob->tablePrefix;
-               $this->WorkerJob->query('DELETE FROM '.$prefix.'worker_jobs WHERE job_id = '.$job_id);*/
+               $prefix = $this->WorkerJob->tablePrefix;
+               $this->WorkerJob->query('DELETE FROM '.$prefix.'worker_jobs WHERE job_id = '.$job_id);
 
                // Save worker jobs
-               //$this->create_worker_job($job_id);
+               $this->create_worker_job($job_id);
 
                $this->Session->setFlash("Job has been updated.",'default',array('class'=>'alert alert-success'));
                 $this->redirect(array('action' => 'admin_index'));
@@ -114,12 +114,14 @@ class JobsController extends AppController {
             $get_workers = $this->User->getWorkers();
             $requirements = $this->Requirement->requirements();
             $get_job_requirements = $this->get_job_requirements($id);
-            //$get_job_workers = $this->get_job_workers($id);
+            $get_job_workers = $this->get_job_workers($id);
+
+            //pr($get_job_workers);
 
             $this->set('get_workers',$get_workers);
             $this->set('requirements',$requirements);
             $this->set('get_job_requirements',$get_job_requirements);
-            //$this->set('get_job_workers',$get_job_workers);
+            $this->set('get_job_workers',$get_job_workers);
             $this->request->data = $job;
         }
     }
@@ -152,9 +154,12 @@ class JobsController extends AppController {
     }
 
     public function get_job_workers($job_id){
-
-        $get_job_workers = $this->WorkerJob->find('user_id', array('conditions'=>array('WorkerJob.job_id' => $job_id)));
-        return $get_job_workers;
+        $get_job_workers = $this->WorkerJob->find('all', array('conditions'=>array('WorkerJob.job_id' => $job_id),'fields'=>array('user_id') ) );
+        $job_workers = array();
+        foreach($get_job_workers as $get_job_worker){
+            $job_workers[] = $get_job_worker['WorkerJob']['user_id'];
+        }
+        return $job_workers;
 
     }
 

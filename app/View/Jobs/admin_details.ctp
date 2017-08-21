@@ -2,6 +2,7 @@
     <h3>Job Details</h3>
     <p><b>Job Name: </b> <?php echo $job['Job']['name'] ?></p>
     <p><b>Create Date: </b> <?php echo $this->Common->getDate($job['Job']['created']) ?></p>
+    <p><b>Job Description: </b> <?php echo $job['Job']['job_description'] ?></p>
     <p>
     <h3>Requirements</h3>
    <div class="table-responsive">

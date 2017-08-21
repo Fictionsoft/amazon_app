@@ -15,6 +15,7 @@
         'plugins/metisMenu/metisMenu.min',
         'plugins/timeline',
         'sb-admin-2',
+        'jquery-ui',
         'admin_custom',
         'plugins/morris',
         'font-awesome.min'
@@ -27,7 +28,9 @@
     echo "\n" . '<script type="text/javascript">var CONTROLLER = \'' . $this->name . '\';</script>';
     echo "\n" . '<script type="text/javascript">var ACTION = \'' . $this->action . '\';</script>';
     echo $this->fetch('script');
-    echo $this->Html->script('jquery');
+    echo $this->Html->script('jquery-1.11.0');
+    //echo $this->Html->script('jquery-ui');
+    //echo $this->Html->script('custom');
     echo $this->Html->script('jquery.validate');
     echo $this->Html->script('inflection');
     echo $this->Html->script('custom_admin');
@@ -207,6 +210,9 @@ echo $this->Html->script(
         'bootstrap.min.3.0.3',
         'plugins/metisMenu/metisMenu.min',
         'sb-admin-2',
+        'jquery-ui',
+        'custom'
+
 
     )
 );

@@ -1,6 +1,14 @@
+<?php
+    if(empty($get_job_workers)){
+        $get_job_workers = null;
+    }
 
-<div class="form-group"><?php echo $this->Form->input('user_id',array('multiple' => true, 'options'=> $get_workers,'empty'=>'-- Select Worker --', 'required'=>'required','label'=>'Worker <span>*</span>', 'class'=>'form-control')) ?></div>
-<div class="form-group"><?php echo $this->Form->input('name',array('label'=>'Job Name','class'=>'form-control')) ?></div>
+?>
+
+
+<div class="form-group"><?php echo $this->Form->input('user_id',array('multiple' => true, 'selected' => $get_job_workers, 'options'=> $get_workers,'empty'=>'-- Select Worker --', 'required'=>'required','label'=>'Worker <span>*</span>', 'class'=>'form-control')) ?></div>
+<div class="form-group"><?php echo $this->Form->input('name',array('required'=>'required','label'=>'Job Name','class'=>'form-control')) ?></div>
+<div class="form-group"><?php echo $this->Form->input('job_description',array('label'=>'Job Description','class'=>'form-control')) ?></div>
     <div class="job_requirements">
         <label>Job Requirements</label>
 

@@ -41,8 +41,9 @@ echo "\n" . '<script type="text/javascript">var ACTION = \'' . $this->action . '
 
 
 <?php echo $this->Html->script('bootstrap.min.3.0.3') ?>
-<?php echo $this->Html->script('custom') ?>
 <?php echo $this->Html->script('jquery-ui'); ?>
+<?php echo $this->Html->script('custom') ?>
+
 <?php echo $this->Html->script('iframeResizer.min') ?>
 <?php echo $this->Html->script('jquery.scrollUp.min') ?>
 <?php echo $this->element('sql_dump'); ?>

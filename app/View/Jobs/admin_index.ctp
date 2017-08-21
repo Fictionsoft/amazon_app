@@ -43,9 +43,9 @@ if($jobs){
     <tr>
         <th>#Id</th>
         <th><?php echo $paginator->sort('name')?></th>
+        <th><?php echo $paginator->sort('job_description','Description')?></th>
         <th><?php echo $paginator->sort('job_status')?></th>
         <th><?php echo $paginator->sort('created','Create Date')?></th>
-        <th><?php echo $paginator->sort('updated','Update Date')?></th>
         <th>Action</th>
     </tr>
     <?php
@@ -55,9 +55,9 @@ if($jobs){
         <tr>
             <td><?php echo $i ?> </td>
             <td><?php echo $job['Job']['name'] ?></td>
+            <td><?php echo $this->Common->readMore($job['Job']['job_description'], 5) ?></td>
             <td><?php echo $job['Job']['job_status'] == 0 ? 'Pending': 'Completed'; ?></td>
             <td><?php echo $this->Common->getDate($job['Job']['created']) ?></td>
-            <td><?php echo $this->Common->getDate($job['Job']['updated']) ?></td>
             <td>
                 <?php
 
