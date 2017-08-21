@@ -4,6 +4,7 @@
 <div class="form-group"><?php echo $this->Form->input('present_status',array('options'=>array('Pending'=>'Pending','Completed'=>'Completed'),'required'=>'required','label'=>'Present Status <span>*</span>','empty'=>'-- Select Present Status --','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('required_status',array('required'=>'required', 'class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('start_date',array('class'=>'form-control')) ?></div>
+<div class="form-group"><?php echo $this->Form->input('target_date',array('class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('reference_code',array('required'=>'required','label'=>'Reference Code <span>*</span>','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('asin',array('required'=>'required','label'=>'Asin <span>*</span>','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('keyword',array('required'=>'required', 'label'=>'Keyword <span>*</span>', 'class'=>'form-control')) ?></div>
