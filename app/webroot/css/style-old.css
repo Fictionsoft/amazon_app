@@ -1,0 +1,512 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-size: 16px;
+    word-wrap: break-word;
+
+}
+h1,h2,h3,h4,h5,h6{
+   margin:0;
+   padding: 0;
+}
+h1{
+    font-size: 32px;
+    margin-bottom:20px ;
+
+}
+h2{
+    font-size: 28px;
+    margin-bottom:20px ;
+
+}
+h3{
+    font-size: 22px;
+    margin-bottom:15px ;
+
+}
+h4{
+    font-size: 18px;
+    margin-bottom:12px ;
+
+}
+h5{
+    font-size: 13px;
+    margin-bottom:10px ;
+
+}
+h6{
+    font-size: 10px;
+    margin-bottom:10px ;
+
+}
+ul li{
+    list-style: none;
+
+}
+table{
+    margin: 0 !important;
+}
+
+label span{
+    color:red;
+    font-size: 20px;
+}
+label em{
+    color:red;
+    font-size: 20px;
+}
+a{
+    color: #3399FF;
+   -webkit-transition: all 0.9s ease 0s;
+   -moz-transition: all 0.9s ease 0s;
+   -o-transition: all 0.9s ease 0s;
+   transition: all 0.9s ease 0s;
+
+}
+
+a:hover{
+    outline:none;
+    text-decoration: none;
+    color: #037f7f;
+
+}
+a:focus{
+    outline: none;
+   outline-offset:0;
+}
+
+/*###################################################
+                    Common style
+#####################################################*/
+
+
+
+
+/*###################################################
+                    Home page style
+#####################################################*/
+.front_page_wrapper{
+    padding: 30px 0;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+.header {
+    margin: 0;
+    padding-bottom: 15px;
+    float: left;
+    width: 100%;
+    height: auto;
+    background: #209C9C;
+
+}
+
+.header_top{
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+
+
+
+}
+.header_logo {
+    float: left;
+    height: auto;
+    width: 100%;
+	padding: 22px 0 0;
+}
+
+.header_logo h2{
+    font-size: 22px;
+}
+.header_logo h2 a{
+    color: #003690;
+}
+
+.header_logo h2 a:hover{
+    color: #000000;
+}
+
+
+.header_logo img {
+    width: 100%;
+
+}
+.header_top_menu {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.header_top_menu ul {
+    float: left;
+    height: auto;
+    margin: 22px 0;
+    padding: 0;
+    width: 100%;
+}
+.header_top_menu ul li {
+    display: inline-block;
+    list-style: outside none none;
+}
+
+.header_top_menu ul li a {
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+.header_top_menu ul li a:hover{
+    color:#eee;
+}
+
+.header_right {
+    height: auto;
+    margin:12px 0 0;
+    padding: 0;
+    width: 100%;
+    float: left;
+}
+.header_right a {
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    text-decoration: none;
+    float: right;
+}
+.header_right a:hover{
+    color:#eee;
+}
+.header_content {
+    width: 100%;
+    float: left;
+    margin: 20px;
+    padding: 0;
+    height: auto;
+}
+
+.home_content_title h2 {
+    text-align: center;
+    width: 100%;
+    height:auto;
+}
+
+.slider_section{
+	float: left;
+	width: 100%;
+	height: auto;
+}
+.slider_img {
+    float: left;
+    height: auto;
+    margin: 40px 0;
+    padding: 0;
+    width: 100%;
+}
+.slider_img img {
+    float: left;
+    height: auto;
+    width: 100%;
+    border: 1px solid#ccc;
+}
+.footer_section{
+    background: #209c9c;
+    float: left;
+    height: auto;
+    margin: 0;
+    padding: 30px 0;
+    width: 100%;
+
+}
+.About_area {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+.footer_title{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.footer_title h4 {
+    color: #eee;
+    padding: 0;
+    text-transform: uppercase;
+    width: 100%;
+    float: left;
+
+}
+.about_contact{
+    width:100%;
+    height: auto;
+
+}
+.about_contact ul {
+    height: auto;
+    list-style: outside none none;
+    width: 100%;
+    padding: 0;
+    mergin: 0;
+}
+.about_contact ul li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.about_contact ul li a {
+    color: #ddd;
+    text-decoration: none;
+    display: block;
+}
+
+.about_contact ul li a:hover{
+    color:#fff;
+}
+.about_contact ul li a i{
+    padding: 5px;
+}
+
+/*###################################################
+                    form style
+#####################################################*/
+
+.form_content{
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    float: left;
+    border:1px solid #dddddd;
+    border-radius: 5px;
+
+}
+
+.form_title{
+    border-bottom: 1px solid #dddddd;
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+
+}
+.form_title h2 {
+    text-align: center;
+    margin: 0 0 10px;
+}
+.form_inner{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.btn_content {
+    padding: 30px 0 0;
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.btn_content a {
+    display: inline-block;
+    margin: 28px 0 0;
+
+}
+
+
+.custom_btn {
+    padding: 8px 30px;
+    color: #ffffff;
+    background: #209C9C;
+    border: none;
+    transition: all 0.8s ease 0s;
+    border-radius: 4px;
+    font-size: 18px;
+}
+.custom_btn:hover{
+    background-color: #037F7F;
+
+}
+/*###################################################
+                  user contact wrapper
+#####################################################*/
+
+.user_contact_wrapper{
+    width: 100%;
+    height: auto;
+    float: left;
+    background:#D4D4D4;
+    padding:40px 0;
+
+}
+.user_nav {
+    width: 100%;
+    height: auto;
+
+}
+.user_nav ul{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.user_nav ul li{
+    position: relative;
+
+}
+
+.user_nav ul li ul{
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index:99999 ;
+
+}
+
+.user_nav ul li:hover ul{
+    display: block;
+    position: absolute;
+    left: 100%;
+    top: 0px;
+}
+
+.user_nav ul li ul li a{
+    color: #414141;
+    display: block;
+    font-size: 17px;
+    font-weight: normal;
+    padding: 20px 10px;
+    text-decoration: none;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.user_nav ul li a{
+    border-bottom: 1px solid #c1c1c1;
+    cursor: pointer;
+    display: block;
+    font-size: 17px;
+    padding: 20px 20px;
+    background:#dddddd;
+    color: #414141;
+
+}
+.user_nav ul li a i {
+    font-size: 20px;
+    padding: 0 15px 0 0;
+}
+.user_nav ul li a:hover{
+    color:#ffffff;
+    background-color:#209C9C;
+
+}
+
+.product_finder_search,
+.product_finder_search form{
+    float: left;
+    height: auto;
+    width: 100%;
+}
+
+.search_category{
+    color:#414141;
+}
+
+.select_option {
+    background: #dfdfdf;
+    color: #414141;
+}
+.select_price{
+    margin-left:15px;
+}
+.product_search_btn .custom_btn{
+    padding:6px 60px;
+    font-size:16px;
+}
+
+/*###################################################
+                  user contact wrapper table
+#####################################################*/
+
+
+
+
+.sales_rank_title {
+    background: #209c9c none repeat scroll 0 0 !important;
+    border: 1px solid #dfdfdf !important;
+    border-radius: 5px 0 0;
+    color: #ffffff;
+    padding-bottom: 15px !important;
+    text-align: center;
+}
+
+.product_info_title{
+    padding-bottom: 15px !important;
+    text-align: center;
+    border: 1px solid #dfdfdf !important;
+    background: #209C9C !important;
+    color: #ffffff;
+}
+.category_title{
+    padding-bottom:15px !important;
+    text-align: center;
+    border: 1px solid #dfdfdf !important;
+    background: #209C9C !important;
+    color: #ffffff;
+}
+
+.price_title {
+    background: #209c9c none repeat scroll 0 0 !important;
+    border: 1px solid #dfdfdf !important;
+    border-radius: 0 5px 0 0;
+    color: #ffffff;
+    padding-bottom: 15px !important;
+    text-align: center;
+}
+
+
+
+
+.table_container {
+
+    height: 130px;
+    width: 100%;
+    padding-left: 20px !important;
+}
+.odd {
+
+    border: 1px solid #e8e8e8;
+    vertical-align: middle !important;
+    text-align: center;
+    color:#414141;
+}
+.even{
+    border: 1px solid #e8e8e8;
+    background: #DFDFDF;
+    vertical-align: middle !important;
+    text-align: center;
+    color:#414141;
+}
+.product_finder_table {
+    float: left;
+    height: auto;
+    padding: 30px 0;
+    width: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

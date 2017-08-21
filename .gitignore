@@ -1,5 +1,6 @@
 # CakePHP 3
-
+.htaccess
+.idea
 /vendor/*
 /config/app.php
 
