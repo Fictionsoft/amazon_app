@@ -13,3 +13,4 @@
 
 <div class="form-group is-publish"><?php echo $this->Form->input('status') ?></div>
 
+
