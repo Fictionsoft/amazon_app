@@ -1,7 +1,8 @@
 # CakePHP 3
 .htaccess
 .idea
-/config/*
+/vendor/*
+/config/app.php
 
 /tmp/cache/models/*
 !/tmp/cache/models/empty
