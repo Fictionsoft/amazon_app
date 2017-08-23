@@ -1,6 +1,24 @@
 <div class="container-fluid"><p>
     <h3>Job Details</h3>
+
     <p><b>Job Name: </b> <?php echo $job['Job']['name'] ?></p>
+    <p>
+        <b>Job Worker:</b>
+        <?php
+
+            $count = count($job['WorkerJob']);
+            $i = 1;
+            foreach($job['WorkerJob'] as $job_worker){
+                if($count > $i){
+                    echo $job_worker['User']['first_name'].' '.$job_worker['User']['last_name'].', ';
+                }else{
+                    echo $job_worker['User']['first_name'].' '.$job_worker['User']['last_name'];
+                }
+                $i++;
+            }
+        ?>
+    </p>
+
     <p><b>Create Date: </b> <?php echo $this->Common->getDate($job['Job']['created']) ?></p>
     <p><b>Job Description: </b> <?php echo $job['Job']['job_description'] ?></p>
     <p>
