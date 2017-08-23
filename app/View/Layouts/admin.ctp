@@ -28,9 +28,9 @@
     echo "\n" . '<script type="text/javascript">var CONTROLLER = \'' . $this->name . '\';</script>';
     echo "\n" . '<script type="text/javascript">var ACTION = \'' . $this->action . '\';</script>';
     echo $this->fetch('script');
-    echo $this->Html->script('jquery-1.11.0');
+    echo $this->Html->script('jquery');
     echo $this->Html->script('jquery-ui');
-    //echo $this->Html->script('custom');
+    echo $this->Html->script('custom');
     echo $this->Html->script('jquery.validate');
     echo $this->Html->script('inflection');
     echo $this->Html->script('custom_admin');
