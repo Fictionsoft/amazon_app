@@ -4,7 +4,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
     var $name = 'Users';
     public $helpers = array('Html', 'Form');
-    public $uses = array('User','Role');
+    public $uses = array('User','WorkerJob','Role');
     public $components = array( 'Common', 'Auth', 'Session', 'Cookie', 'RequestHandler', 'Email', 'PaymentHandlerPaypal' );
 
     public function beforeFilter() {
@@ -642,7 +642,9 @@ class UsersController extends AppController {
     public function admin_details($user_id=null){
         if(!empty($user_id)){
             $user = $this->User->findById($user_id);
-            $this->set('user', $user);
+            $jobs = $this->WorkerJob->find('all', array('conditions'=>array('user_id'=>$user_id)));
+
+            $this->set(compact('user','jobs'));
 
         }else{
             $this->Session->setFlash("This user could not found",'default',array('class'=>'alert alert-danger'));

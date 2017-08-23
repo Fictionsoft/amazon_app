@@ -29,7 +29,16 @@ function completeTask( user_id, user_task_id,c) {
 }
 
 
+// Date picker
+// Use date picker
+$(function() {
+    $( ".date_picker" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'yy-mm-dd'
+    });
 
+});
 
 
 function getProduct(id){
