@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div><h4><?php echo $user['User']['first_name'].' '.$user['User']['last_name'] ?></h4></div>
-            <div>Email:<?php echo $user['User']['email'] ?></div>
-            <div>Phone:<?php echo $user['User']['phone'] ?></div>
-            <div>Address:<?php echo $user['User']['address_line1'] ?></div>
+            <div><b>Name:</b><?php echo $user['User']['first_name'].' '.$user['User']['last_name'] ?></div>
+            <div><b>Email:</b> <?php echo $user['User']['email'] ?></div>
+            <div><b>Phone:</b> <?php echo $user['User']['phone'] ?></div>
+            <div><b>Address:</b> <?php echo $user['User']['address_line1'] ?></div><br>
 
-            <h4>Works</h4>
+            <h4>Jobs</h4>
 
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -35,7 +35,7 @@
                             <td>
                                 <?php
                                 // Details Link
-                                echo $this->Html->link("View", array('controller'=>'','action' => 'details', $job['Job']['id'])).'&nbsp;&nbsp;';
+                                echo $this->Html->link("View", array('controller'=>'jobs','action' => 'details', $job['Job']['id'])).'&nbsp;&nbsp;';
                                 ?>
                             </td>
                         </tr>
