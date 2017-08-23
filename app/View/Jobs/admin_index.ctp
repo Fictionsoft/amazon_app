@@ -51,7 +51,6 @@ if($jobs){
         <th>Action</th>
     </tr>
     <?php
-    //pr($jobs); die;
 
     $i=1;
     foreach( $jobs as $job ) {
@@ -78,12 +77,12 @@ if($jobs){
             <td><?php echo $this->Common->getDate($job['Job']['created']) ?></td>
             <td>
                 <?php
-
-                //delete link
-                echo $this->Form->postLink('Delete', array('action' => 'delete', $job['Job']['id']),array('confirm' => 'Are you sure you want to delete this Job?')).'&nbsp;&nbsp';
+                // Details Link
+                echo $this->Html->link("View", array('action' => 'details', $job['Job']['id'])).'&nbsp;&nbsp;';
                 // edit link
                 echo $this->Html->link("Edit", array('action' => 'update', $job['Job']['id'])).'&nbsp;&nbsp;';
-                echo $this->Html->link("Details", array('action' => 'details', $job['Job']['id'])).'&nbsp;&nbsp;';
+                //delete link
+                echo $this->Form->postLink('Delete', array('action' => 'delete', $job['Job']['id']),array('confirm' => 'Are you sure you want to delete this Job?')).'&nbsp;&nbsp';
 
                 ?>
             </td>

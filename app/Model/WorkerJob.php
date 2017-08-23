@@ -6,7 +6,14 @@ class WorkerJob extends AppModel{
         'User'              => array(
             'className'     => 'User',
             'foreingKey'    => 'user_id'
+        ),
+
+        'Job'              => array(
+            'className'     => 'Job',
+            'foreingKey'    => 'job_id'
         )
+
+
     );
 
 }
