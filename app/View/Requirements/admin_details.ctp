@@ -65,7 +65,6 @@
 
            </tr>
 
-
            <tr>
                <td class="details_title">Description</td>
                <td>:</td>
