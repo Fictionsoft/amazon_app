@@ -16,8 +16,9 @@ class Requirement extends AppModel{
             'foreignKey' => 'requirement_type_id'
         )
     );
+
     public function requirements(){
-        $requriements = $this->find('all',array('conditions'=>array('Requirement.status'=>1)));
+        $requriements = $this->find('all',array('conditions'=>array('Requirement.status'=>1,'Requirement.is_assign'=>0)));
         return $requriements;
     }
 }

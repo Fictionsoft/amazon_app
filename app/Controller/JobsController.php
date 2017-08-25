@@ -43,8 +43,6 @@ class JobsController extends AppController {
     public function admin_create() {
         if ($this->request->is('post')) {
 
-            //pr($this->request->data);die;
-
             $this->Job->create();
             if ($this->Job->save($this->request->data)) {
                 $job_id = $this->Job->getLastInsertId();
@@ -116,8 +114,6 @@ class JobsController extends AppController {
             $get_job_requirements = $this->get_job_requirements($id);
             $get_job_workers = $this->get_job_workers($id);
 
-            //pr($get_job_workers);
-
             $this->set('get_workers',$get_workers);
             $this->set('requirements',$requirements);
             $this->set('get_job_requirements',$get_job_requirements);
@@ -128,11 +124,14 @@ class JobsController extends AppController {
 
 
     public function create_assign_job($job_id){
-
         foreach($this->request->data['Requirement']['id'] as $requirement_id ){
             $assign_jobs = array('AssignJob'=>array('job_id'=>$job_id, 'requirement_id'=>$requirement_id));
             $this->AssignJob->create();
             $this->AssignJob->save($assign_jobs);
+
+            // Update status requirement is_assign
+            $this->Requirement->id = $requirement_id;
+            $this->Requirement->saveField('is_assign', 1);
         }
 
     }
@@ -212,7 +211,7 @@ class JobsController extends AppController {
     public function my_jobs($job_status = null){
         $this->Job->recursive = 0;
         $user_id = $this->Session->read('Auth.User.id');
-        $my_jobs = $this->Job->find('all',array('conditions'=>array('Job.user_id'=>$user_id, 'Job.status'=>1,'Job.job_status'=>$job_status)));
+        $my_jobs = $this->WorkerJob->find('all',array('conditions'=>array('WorkerJob.user_id'=>$user_id, 'Job.status'=>1,'Job.job_status'=>$job_status)));
         if(!$my_jobs){
             $this->Session->setFlash("Job not found!",'default',array('class'=>'alert alert-warning'));
         }

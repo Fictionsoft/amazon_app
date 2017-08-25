@@ -9,7 +9,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <div class="header_top_menu">
                             <ul>
                                 <li><a href="<?php echo $this->Html->url('/'); ?>">Home  </a></li>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-5">
                         <div class="header_right">
                             <?php if ($this->Session->check('Auth.User')){
                                 echo '<a href="'.$this->Html->url('/Users/logout').'"> Logout</a>';

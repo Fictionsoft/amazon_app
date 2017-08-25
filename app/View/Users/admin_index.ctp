@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2"><h3>User List</h3></div>
+        <div class="col-md-2"><h3><?php echo " $page_title List" ?></php></h3></div>
         <div class="col-md-3 top_space">
             <?php echo $this->Form->create('User') ?>
                 <div class="input-group custom-search-form">
@@ -73,7 +73,7 @@ if(!empty($users)){
            // edit
            echo $this->Html->link(
                "View",
-               array('action' => '/details', $user['User']['id'])
+               array('action' => '/details',$user['User']['role_id'],$user['User']['id'])
            );
 
            echo '&nbsp; &nbsp;';

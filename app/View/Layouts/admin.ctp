@@ -92,7 +92,10 @@
                     </li>
 
                     <?php
+
                     if(!empty($left_navigation)){
+
+                       //pr($this->params['pass']); die;
 
                         if(isset($this->params['pass'][0])){
                             $pass = $this->params['pass'][0];
@@ -100,7 +103,11 @@
                             $pass = null;
                         }
                         foreach($left_navigation as $navigation){
-                            if($navigation['Dashboard']['url'] == 'users'){ ?>
+
+                            if($navigation['Dashboard']['url'] == 'users'){
+                                // Worker id 2
+                                // Client id 3
+                                ?>
                                 <li><a href="<?php echo $this->base.'/admin/'.$navigation['Dashboard']['url'].'/index/2' ?>" class="<?php echo ($this->params['controller']==$navigation['Dashboard']['url'] and $pass == 2 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Workers<span class="fa arrow"></span></a></li>
                                 <li><a href="<?php echo $this->base.'/admin/'.$navigation['Dashboard']['url'].'/index/3' ?>" class="<?php echo ($this->params['controller']==$navigation['Dashboard']['url'] and $pass == 3 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Clients<span class="fa arrow"></span></a></li>
 

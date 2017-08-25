@@ -405,15 +405,15 @@ class UsersController extends AppController {
      * @param:null
      * @return:null
      */
-    public function admin_index($id = null) {
+    public function admin_index($user_role_id = null) {
         if(!$this->Session->check('Auth.User')){
             $this->redirect(array('controller'=>'users','action' => 'login'));
         }
 
         if($this->request->isPost()){
-            $this->Session->write("UserFilter_$id", $this->request->data['User']);
+            $this->Session->write("UserFilter_$user_role_id", $this->request->data['User']);
         }
-        $where = $this->__builtContentWhere($id);
+        $where = $this->__builtContentWhere($user_role_id);
 
         $this->paginate = array(
             'conditions' => $where,
@@ -421,8 +421,16 @@ class UsersController extends AppController {
             'order' => array('id' => 'desc')
         );
 
-        $user = $this->paginate('User');
-        $this->set('users', $user);
+        if($user_role_id == 2 ){ // Worker id = 2
+            $page_title = "Worker";
+        }elseif($user_role_id == 3){ // Client id = 3
+
+            $page_title = "Client";
+        }
+
+        $users = $this->paginate('User');
+
+        $this->set(compact('users','page_title'));
     }
 
 
@@ -549,22 +557,22 @@ class UsersController extends AppController {
     /*
      * reset filter
      */
-    public function admin_reset($id=null){
-        if($this->Session->check("UserFilter_$id")){
-            $this->Session->delete("UserFilter_$id");
+    public function admin_reset($user_role_id=null){
+        if($this->Session->check("UserFilter_$user_role_id")){
+            $this->Session->delete("UserFilter_$user_role_id");
         }
-        $this->redirect('index/'.$id);
+        $this->redirect('index/'.$user_role_id);
     }
 
     /*
      * filter
      */
-    public function __builtContentWhere($id){
+    public function __builtContentWhere($user_role_id){
         $filter = null;
-        $conditions = array('AND'=>array('User.role_id'=>$id));
+        $conditions = array('AND'=>array('User.role_id'=>$user_role_id));
 
-        if($this->Session->check("UserFilter_$id")){
-            $filter = $this->Session->read("UserFilter_$id.filter");
+        if($this->Session->check("UserFilter_$user_role_id")){
+            $filter = $this->Session->read("UserFilter_$user_role_id.filter");
         }
         if(!empty($filter)){
             $conditions = array('OR' => array(
@@ -639,12 +647,17 @@ class UsersController extends AppController {
     /**
      * user details
      */
-    public function admin_details($user_id=null){
+    public function admin_details($user_role_id = null, $user_id = null ){
         if(!empty($user_id)){
             $user = $this->User->findById($user_id);
             $jobs = $this->WorkerJob->find('all', array('conditions'=>array('user_id'=>$user_id)));
 
-            $this->set(compact('user','jobs'));
+            if( $user_role_id == 2 ){ // Worker role id = 2
+               $page_title = "Worker";
+            }elseif( $user_role_id == 3 ){
+                $page_title = "Client";
+            }
+            $this->set(compact('user','jobs','page_title'));
 
         }else{
             $this->Session->setFlash("This user could not found",'default',array('class'=>'alert alert-danger'));

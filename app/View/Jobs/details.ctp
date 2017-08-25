@@ -9,23 +9,33 @@
                 <?php echo $this->Session->flash();?>
                 <h3>Job Details</h3>
 
-                <table class="table">
-                    <tr>
-                        <th>Job Name</th>
-                        <th>Create Date</th>
-                        <th>Update Date</th>
-                        <th>Job Status</th>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <td class="details_title">Name</td>
+                            <td>:</td>
+                            <td><?php echo $job['Job']['name'];?></td>
+                        </tr>
 
-                    </tr>
+                        <tr>
+                            <td class="details_title">Description </td>
+                            <td>:</td>
+                            <td><?php echo $job['Job']['job_description'];?></td>
+                        </tr>
 
-                    <tr>
-                        <td><?php echo $job['Job']['name'];?></td>
-                        <td><?php echo $this->Common->getDate($job['Job']['created']) ?></td>
-                        <td><?php echo $this->Common->getDate($job['Job']['updated']) ?></td>
-                        <td><?php echo $job['Job']['job_status'] == 0 ? 'Pending': 'Completed'; ?></td>
-                    </tr>
+                        <tr>
+                            <td class="details_title">Create Date</td>
+                            <td>:</td>
+                            <td><?php echo $this->Common->getDate($job['Job']['updated']) ?></td>
+                        </tr>
 
-                </table>
+                        <tr>
+                            <td class="details_title">Status</td>
+                            <td>:</td>
+                            <td><?php echo $job['Job']['job_status'] == 0 ? 'Pending': 'Completed'; ?></td>
+                        </tr>
+                    </table>
+                </div>
                 <br><br>
 
                 <h3>Requirements</h3>
@@ -66,9 +76,6 @@
                     ?>
                 </div>
                 <br>
-
-
-
 
             </div>
         </div>
