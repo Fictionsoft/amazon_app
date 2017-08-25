@@ -38,8 +38,6 @@ class RequirementsController extends AppController {
     }
 
 
-
-
     /**
      * @param null
      * @return null
@@ -126,6 +124,15 @@ class RequirementsController extends AppController {
         }
         $this->redirect('index');
     }
+
+
+
+    public function admin_details($id){
+        $requirement = $this->Requirement->findById($id);
+        $this->set('requirement',$requirement);
+
+    }
+
 
 
     public function get_client_list(){

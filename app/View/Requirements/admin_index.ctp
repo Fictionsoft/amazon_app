@@ -49,10 +49,12 @@ if($requirements){
     <table class="table table-hover">
     <tr>
         <th>#Id</th>
+        <th><?php echo $paginator->sort('requirement_type_id','Requirement Type')?></th>
         <th><?php echo $paginator->sort('reference_code', 'Reference Code')?></th>
         <th><?php echo $paginator->sort('asin')?></th>
         <th><?php echo $paginator->sort('keyword')?></th>
         <th><?php echo $paginator->sort('required_status','Required Status')?></th>
+        <th><?php echo $paginator->sort('present_status')?></th>
         <th><?php echo $paginator->sort('status') ?></th>
         <th>Action</th>
     </tr>
@@ -62,14 +64,18 @@ if($requirements){
     ?>
         <tr>
             <td><?php echo $i ?> </td>
+            <td><?php echo $requirement['RequirementType']['name'] ?></td>
             <td><?php echo $requirement['Requirement']['reference_code'] ?></td>
             <td><?php echo $requirement['Requirement']['asin'] ?></td>
             <td><?php echo $requirement['Requirement']['keyword'] ?></td>
             <td><?php echo $requirement['Requirement']['required_status'] ?></td>
+            <td><?php echo $requirement['Requirement']['present_status'] ?></td>
             <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['status'] )) ?>&nbsp;</td>
             <td>
                 <?php
-                    // edit link
+                    // View link
+                    echo $this->Html->link("View", array('action' => 'details', $requirement['Requirement']['id'])).'&nbsp;&nbsp;';
+                    // Edit link
                     echo $this->Html->link("Edit", array('action' => 'update', $requirement['Requirement']['id'])).'&nbsp;&nbsp;';
                     //delete link
                     echo $this->Form->postLink('Delete', array('action' => 'delete', $requirement['Requirement']['id']),array('confirm' => 'Are you sure you want to delete this Requirement?'));

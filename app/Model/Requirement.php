@@ -10,11 +10,12 @@ class Requirement extends AppModel{
         )
     );*/
 
-    /*public function getBrands(){
-        $brands = $this->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-        return $brands;
-    }*/
-
+    public $belongsTo = array(
+        'RequirementType' => array(
+            'className' => 'RequirementType',
+            'foreignKey' => 'requirement_type_id'
+        )
+    );
     public function requirements(){
         $requriements = $this->find('all',array('conditions'=>array('Requirement.status'=>1)));
         return $requriements;
