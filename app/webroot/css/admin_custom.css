@@ -100,3 +100,7 @@ td div.active {
     height: 20px;
     width: 40px;
 }
+
+.radius_left{
+    border-radius: 4px 0 0 4px !important;
+}

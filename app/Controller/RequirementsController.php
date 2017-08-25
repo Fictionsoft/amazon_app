@@ -4,7 +4,6 @@ App::uses('AppController', 'Controller');
 
 class RequirementsController extends AppController {
 
-
     public $helpers = array('Html', 'Form', 'Currency');
     public $components = array('Auth','Session','Common', 'FileHandler');
     public $uses = array('Requirement','User');
@@ -19,8 +18,9 @@ class RequirementsController extends AppController {
      * @return null
      */
     public function admin_index() {
-        //$this->autoRender = false;
-        if(!empty($this->data)){
+
+
+        if(!empty($this->request->data['Requirement'])){
             $this->Session->write('RequirementFilter', $this->request->data['Requirement']);
         }
         $where = $this->__builtContentWhere();
@@ -31,11 +31,14 @@ class RequirementsController extends AppController {
         );
 
         $requirements = $this->paginate('Requirement');
-        $this->loadModel('Requirement');
-        //$requirements = $this->Requirement->find('all');die;
+        $client_list = $this->get_client_list();
 
         $this->set('requirements',$requirements);
+        $this->set('client_list',$client_list);
     }
+
+
+
 
     /**
      * @param null
@@ -58,7 +61,7 @@ class RequirementsController extends AppController {
 
         $this->loadModel('RequirementType');
         $get_re_types = $this->RequirementType->find('list');
-        $get_client = $this->User->getClient();
+        $get_client = $this->get_client_list();
         $this->set(compact('get_client','get_re_types'));
 
 
@@ -94,7 +97,7 @@ class RequirementsController extends AppController {
             $this->loadModel('RequirementType');
             $get_re_types = $this->RequirementType->find('list');
 
-            $get_client = $this->User->getClient();
+            $get_client = $this->get_client_list();
             $this->set(compact('get_client','get_re_types'));
             $this->request->data = $requirement;
         }
@@ -124,20 +127,42 @@ class RequirementsController extends AppController {
         $this->redirect('index');
     }
 
+
+    public function get_client_list(){
+        // Client = 3
+        $this->User->recursive = 0;
+        $clients = $this->User->find('all',array('conditions'=>array('role_id'=>3),'fields'=>array('first_name','last_name','email')));
+        $client_list = array();
+        foreach($clients as $client){
+            $client_list[$client['User']['id']] = $client['User']['first_name'].' '.$client['User']['last_name'].' '. $client['User']['email'];
+        }
+        return $client_list;
+
+    }
+
     public function __builtContentWhere(){
         $filter = null;
         $conditions = array();
 
         if($this->Session->check('RequirementFilter')){
-           $filter = $this->Session->read('RequirementFilter.filter');
+            $filter = $this->Session->read('RequirementFilter.filter');
+            $user_id = $this->Session->read('RequirementFilter.user_id');
         }
+
+        if(!empty($user_id)){
+            $conditions['AND'] = array(
+                'Requirement.user_id'=> $user_id
+            );
+        }
+
+
         if(!empty($filter)){
-            $conditions = array('OR' => array(
+            $conditions['OR'] = array(
                 array('Requirement.reference_code LIKE' => '%' . $filter . '%'),
                 array('Requirement.asin LIKE' => '%' . $filter . '%'),
                 array('Requirement.keyword LIKE' => '%' . $filter . '%'),
                 array('Requirement.required_status LIKE' => '%' . $filter . '%')
-            ));
+            );
         }
 
         return $conditions;
