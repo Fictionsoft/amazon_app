@@ -59,10 +59,36 @@
 
             </tr>
 
+            <tr>
+                <td class="details_title">Total Link</td>
+                <td>:</td>
+                <td>
+                    <?php
+
+                    $string = $job['Job']['links'];
+                    $links_array = explode("\n",$string);
+                    $counter = 0;
+                    foreach($links_array as $link){
+
+                        if(trim($link)!=''){
+                            $counter++;
+
+                        }
+                    }
+                    echo $counter;
+
+                    ?>
+
+                </td>
+
+            </tr>
 
 
 
         </table>
+
+
+
     </div>
 
    <br><br>
