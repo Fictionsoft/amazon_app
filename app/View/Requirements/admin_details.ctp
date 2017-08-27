@@ -36,6 +36,11 @@
                <td>:</td>
                <td><?php echo $requirement['Requirement']['present_status']?></td>
            </tr>
+           <tr>
+               <td class="details_title">Is Assign</td>
+               <td>:</td>
+               <td><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?></td>
+           </tr>
 
            <tr>
                <td class="details_title">Required Status</td>

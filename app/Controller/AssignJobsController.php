@@ -11,7 +11,7 @@ class AssignJobsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array(''));
+        $this->Auth->allow(array('get_jobs_and_workers'));
     }
 
     /**
@@ -129,6 +129,29 @@ class AssignJobsController extends AppController {
         return $conditions;
     }
 
+    function get_jobs_and_workers($requirement_id){
+        $this->loadModel('WorkerJob');
 
+        $assign_jobs = $this->AssignJob->find('all', array('conditions' => array('AssignJob.requirement_id' => $requirement_id ),
+            'fields' => array('Job.id', 'Job.name')
+        ));
+
+        if($assign_jobs){
+            foreach($assign_jobs as $key => $assign_job){
+                $job_id = $assign_job['Job']['id'];
+                $worker_job = $this->WorkerJob->find('all', array('conditions' => array('WorkerJob.job_id' => $job_id ),
+                    'fields' => array('User.id, User.first_name, User.last_name, User.email')
+                ));
+
+                if($worker_job){
+                    $assign_job['WorkerJob'] = $worker_job;
+                    $assign_jobs[$key] = $assign_job;
+                }
+            }
+        }
+
+        return $assign_jobs;
+
+    }
 
 }
