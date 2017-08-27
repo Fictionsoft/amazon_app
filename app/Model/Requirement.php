@@ -18,7 +18,7 @@ class Requirement extends AppModel{
     );
 
     public function requirements(){
-        $requriements = $this->find('all',array('conditions'=>array('Requirement.status'=>1,'Requirement.is_assign'=>0)));
+        $requriements = $this->find('all',array('conditions'=>array('Requirement.status'=>1)));
         return $requriements;
     }
 }

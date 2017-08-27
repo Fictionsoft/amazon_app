@@ -55,7 +55,7 @@
             <tr>
                 <td class="details_title">Links</td>
                 <td>:</td>
-                <td><?php echo $job['Job']['links'] ?></td>
+                <td><?php echo nl2br($job['Job']['links']) ?></td>
 
             </tr>
 

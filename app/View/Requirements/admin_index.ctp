@@ -56,6 +56,7 @@ if($requirements){
         <th><?php echo $paginator->sort('required_status','Required Status')?></th>
         <th><?php echo $paginator->sort('present_status')?></th>
         <th><?php echo $paginator->sort('status') ?></th>
+        <th><?php echo $paginator->sort('Is Assign') ?></th>
         <th>Action</th>
     </tr>
     <?php
@@ -71,6 +72,7 @@ if($requirements){
             <td><?php echo $requirement['Requirement']['required_status'] ?></td>
             <td><?php echo $requirement['Requirement']['present_status'] ?></td>
             <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['status'] )) ?>&nbsp;</td>
+            <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</td>
             <td>
                 <?php
                     // View link

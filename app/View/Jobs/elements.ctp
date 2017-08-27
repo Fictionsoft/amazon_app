@@ -19,6 +19,7 @@
                 <th>Asin</th>
                 <th>Keyword</th>
                 <th>Required Status</th>
+                <th>Is Assign</th>
 
             </tr>
             <?php
@@ -41,6 +42,7 @@
                 <td><?php echo $requirement['Requirement']['asin'] ?></td>
                 <td><?php echo $requirement['Requirement']['keyword']?></td>
                 <td><?php echo $requirement['Requirement']['required_status'] ?></td>
+                <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</td>
 
             </tr>
             <?php } ?>
