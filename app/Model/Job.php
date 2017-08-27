@@ -3,36 +3,15 @@ App::uses('AppModel', 'Model');
 
 class Job extends AppModel{
 
-    public $hasMany         = array(
-            'AssignJob'     =>array(
+    public $hasMany = array(
+        'AssignJob'     =>array(
             'className'     => 'AssignJob',
-            'foreingKey'    =>'job_id'),
-
-            'WorkerJob' => array(
-                'className' => 'WorkerJob',
-                'foreignKey' => 'job_id'
-            )
-
-
-    );
-
-
-
-
-    /*public $validate = array(
-        'name' => array(
-            'rule' => 'notEmpty',
-            'message' => 'Please enter name field'
+            'foreignKey'    =>'job_id'
+        ),
+        'WorkerJob' => array(
+            'className' => 'WorkerJob',
+            'foreignKey' => 'job_id'
         )
     );
-
-    public function getBrands(){
-        $brands = $this->find('list',array('conditions'=>array('status'=>1),'order'=>'name'));
-        return $brands;
-    }*/
-
-
-
-
 }
 

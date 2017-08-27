@@ -10,14 +10,16 @@ class AssignJob extends AppModel{
         )
     );*/
 
-    public $belongsTo       = array(
+    public $belongsTo = array(
         'Requirement'       =>array(
             'className'     =>'Requirement',
             'foreingKey'    =>'requirement_id'
+        ),
+        'Job'=>array(
+            'className'     =>'Job',
+            'foreingKey'    =>'job_id'
         )
 
     );
-
-
 }
 
