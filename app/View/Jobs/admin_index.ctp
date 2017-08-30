@@ -62,14 +62,14 @@ if($jobs){
             <td>
                 <?php
                     $count = count($job['WorkerJob']);
-                    $i = 1;
+                    $j = 1;
                     foreach($job['WorkerJob'] as $job_worker){
-                        if($count > $i){
+                        if($count > $j){
                             echo $job_worker['User']['first_name'].' '.$job_worker['User']['last_name'].', ';
                         }else{
                             echo $job_worker['User']['first_name'].' '.$job_worker['User']['last_name'].' ';
                         }
-                        $i++;
+                        $j++;
                     }
                 ?>
             </td>

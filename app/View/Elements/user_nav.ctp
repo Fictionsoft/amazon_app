@@ -9,6 +9,7 @@
         <?php } ?>
 
         <?php if($this->Common->isWorker($this->Session->read('Auth.User.role_id'))){ ?>
+        <li><a href="<?php echo $this->Html->url('/JobLinks'); ?>"><i class="fa fa-briefcase" ></i>Links</a></li>
         <li><a href="<?php echo $this->Html->url('/jobs/my_jobs/0'); ?>"><i class="fa fa-briefcase" ></i>My Jobs</a></li>
         <li><a href="<?php echo $this->Html->url('/jobs/my_jobs/1'); ?>"><i class="fa fa-briefcase" ></i>Completed Jobs</a></li>
         <?php } ?>

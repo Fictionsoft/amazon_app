@@ -34,40 +34,6 @@
                             <td>:</td>
                             <td><?php echo $job['Job']['job_status'] == 0 ? 'Pending': 'Completed'; ?></td>
                         </tr>
-
-                        <?php if(!empty($job['Job']['links'])){ ?>
-
-                        <tr>
-                            <td class="details_title">Links</td>
-                            <td>:</td>
-                            <td><?php echo $job['Job']['links']; ?></td>
-                        </tr>
-
-                        <tr>
-                            <td class="details_title">Total Link</td>
-                            <td>:</td>
-                            <td>
-                                <?php
-
-                                $string = $job['Job']['links'];
-                                $links_array = explode("\n",$string);
-                                $counter = 0;
-                                foreach($links_array as $link){
-
-                                    if(trim($link)!=''){
-                                        $counter++;
-
-                                    }
-                                }
-                                echo $counter;
-
-                                ?>
-
-                            </td>
-                        </tr>
-                        <?php } ?>
-
-
                     </table>
                 </div>
                 <br><br>
@@ -103,7 +69,7 @@
                     <?php
                         echo $this->Form->create('Job',array('url'=>'/jobs/update_status','type' =>'file'));
                         echo '<div class="form-group">'. $this->Form->input('job_status', array('class'=>'form-control', 'required'=>'required', 'options'=>array(0=>'Pending',1=>'Completed'), 'empty'=>'Select Status')).'</div>';
-                        echo '<div class="form-group">'. $this->Form->input('links',array('class'=>'form-control')).'</div>';
+                        /*echo '<div class="form-group">'. $this->Form->input('links',array('class'=>'form-control')).'</div>';*/
                         echo '<div class="form-group">'. $this->Form->input('id',array('type'=>'hidden', 'value'=> $job['Job']['id'])).'</div>';
                         echo '<div class="submit_button">'.$this->Form->end(array('label'=>'Update','class'=>'btn btn-primary')).'</div>';
                     ?>

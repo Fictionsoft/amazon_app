@@ -175,6 +175,11 @@ class RequirementsController extends AppController {
         return $conditions;
     }
 
+    function get_requirement_type($requirement_type_id){
+        $requirement_type = $this->Requirement->RequirementType->findById($requirement_type_id);
+        return $requirement_type;
+    }
+
 
 
 }

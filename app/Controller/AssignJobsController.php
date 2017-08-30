@@ -140,7 +140,7 @@ class AssignJobsController extends AppController {
             foreach($assign_jobs as $key => $assign_job){
                 $job_id = $assign_job['Job']['id'];
                 $worker_job = $this->WorkerJob->find('all', array('conditions' => array('WorkerJob.job_id' => $job_id ),
-                    'fields' => array('User.id, User.first_name, User.last_name, User.email')
+                    'fields' => array('User.role_id', 'User.id, User.first_name, User.last_name, User.email')
                 ));
 
                 if($worker_job){

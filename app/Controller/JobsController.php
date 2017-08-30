@@ -204,19 +204,27 @@ class JobsController extends AppController {
     public function admin_details($id){
         $this->Job->recursive = 2;
         $job = $this->Job->findById($id);
+
+        $this->loadModel('JobLink');
+        $total_links = $this->JobLink->linksByJob($id);
+
         $this->set('job',$job);
+        $this->set('total_links',$total_links);
 
     }
 
     public function my_jobs($job_status = null){
         $this->Job->recursive = 0;
         $user_id = $this->Session->read('Auth.User.id');
+
         $my_jobs = $this->WorkerJob->find('all',array('conditions'=>array('WorkerJob.user_id'=>$user_id, 'Job.status'=>1,'Job.job_status'=>$job_status)));
+
+
         if(!$my_jobs){
             $this->Session->setFlash("Job not found!",'default',array('class'=>'alert alert-warning'));
         }
-        $this->set('my_jobs',$my_jobs);
 
+        $this->set('my_jobs',$my_jobs);
     }
 
     // Job details

@@ -1,12 +1,8 @@
-<script>
-
-
-</script>
-
 <div class="form-group"><?php echo $this->Form->input('user_id',array('options'=>$get_client,'required'=>'required','label'=>'Client <span>*</span>','empty'=>'--Select Client--','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('requirement_type_id',array('options'=>$get_re_types,'required'=>'required','label'=>'Requirement Type <span>*</span>','empty'=>'-- Select Requirement Type --','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('present_status',array('options'=>array('Pending'=>'Pending','Completed'=>'Completed'),'required'=>'required','label'=>'Present Status <span>*</span>','empty'=>'-- Select Present Status --','class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('required_status',array('required'=>'required', 'class'=>'form-control')) ?></div>
+<div class="form-group"><?php echo $this->Form->input('amount',array('required'=>'required','label'=>'Amount <span>*</span>', 'class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('start_date',array('type'=>'text','class'=>'date_picker form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('target_date',array('type'=>'text','class'=>'date_picker form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('reference_code',array('required'=>'required','label'=>'Reference Code <span>*</span>','class'=>'form-control')) ?></div>

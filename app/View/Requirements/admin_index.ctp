@@ -52,12 +52,12 @@ if($requirements){
         <th><?php echo $paginator->sort('requirement_type_id','Requirement Type')?></th>
         <th><?php echo $paginator->sort('reference_code', 'Reference Code')?></th>
         <th><?php echo $paginator->sort('asin')?></th>
+        <th><?php echo $paginator->sort('amount')?></th>
         <th><?php echo $paginator->sort('keyword')?></th>
         <th><?php echo $paginator->sort('required_status','Required Status')?></th>
         <th><?php echo $paginator->sort('present_status')?></th>
         <th><?php echo $paginator->sort('is_assign')?></th>
         <th><?php echo $paginator->sort('status') ?></th>
-        <th><?php echo $paginator->sort('Is Assign') ?></th>
         <th>Action</th>
     </tr>
     <?php
@@ -69,6 +69,7 @@ if($requirements){
             <td><?php echo $requirement['RequirementType']['name'] ?></td>
             <td><?php echo $requirement['Requirement']['reference_code'] ?></td>
             <td><?php echo $requirement['Requirement']['asin'] ?></td>
+            <td>$<?php echo $requirement['Requirement']['amount'] ?></td>
             <td><?php echo $requirement['Requirement']['keyword'] ?></td>
             <td><?php echo $requirement['Requirement']['required_status'] ?></td>
             <td><?php echo $requirement['Requirement']['present_status'] ?></td>
@@ -76,32 +77,12 @@ if($requirements){
                 <div><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</div>
                 <?php
                 if($requirement['Requirement']['is_assign']==1){
-                    $assign_jobs = $this->requestAction('AssignJobs/get_jobs_and_workers/'.$requirement['Requirement']['id'] )
-
+                    echo $this->Common->getJobWorker($requirement['Requirement']['id']);
+                }
                 ?>
-                <div>
-                    <table class="table table-hover">
-                        <?php foreach($assign_jobs as $assign_job) { ?>
-                        <tr>
-                            <td><?php echo $assign_job['Job']['name'] ?></td>
-                            <td>
-                                <?php
-                                if($assign_job['WorkerJob']){
-                                    foreach($assign_job['WorkerJob'] as $worker_job){
-                                        echo $worker_job['User']['first_name'].' '.$worker_job['User']['last_name'].',';
-                                    }
-                                }
-                                ?>
-                            </td>
-                        </tr>
-                        <?php } ?>
-                    </table>
-                </div>
-                <?php } ?>
             </td>
 
             <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['status'] )) ?>&nbsp;</td>
-            <td class="center"><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</td>
             <td>
                 <?php
                     // View link

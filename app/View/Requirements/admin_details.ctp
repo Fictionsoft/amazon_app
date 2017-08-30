@@ -23,6 +23,12 @@
                <td><?php echo $requirement['Requirement']['asin']?></td>
 
            </tr>
+           <tr>
+               <td class="details_title">Amount</td>
+               <td>:</td>
+               <td>$<?php echo $requirement['Requirement']['amount']?></td>
+
+           </tr>
 
            <tr>
                <td class="details_title">Keyword</td>
@@ -39,7 +45,16 @@
            <tr>
                <td class="details_title">Is Assign</td>
                <td>:</td>
-               <td><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?></td>
+               <td>
+                   <div><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?></div>
+                   <div>
+                       <?php
+                       if($requirement['Requirement']['is_assign']==1){
+                           echo $this->Common->getJobWorker($requirement['Requirement']['id']);
+                       }
+                       ?>
+                   </div>
+               </td>
            </tr>
 
            <tr>
@@ -80,7 +95,7 @@
            <tr>
                <td class="details_title">Links</td>
                <td>:</td>
-               <td><?php echo nl2br($requirement['Requirement']['links'])?></td>
+               <td><?php echo $requirement['Requirement']['links']?></td>
 
            </tr>
 

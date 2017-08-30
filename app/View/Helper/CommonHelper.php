@@ -93,13 +93,49 @@ class CommonHelper extends AppHelper {
         }
     }
 
+    function getJobWorker($requirement_id){
+        $assign_jobs = $this->requestAction('AssignJobs/get_jobs_and_workers/'.$requirement_id );
+        $html = '<div>
+                    <table class="table table-hover">';
+                        foreach($assign_jobs as $assign_job) {
+                            $html.='<tr>
+                                <td>
+                                '.$this->Html->link($assign_job['Job']['name'], array('controller'=>'Jobs', 'action' => 'details', $assign_job['Job']['id'] ) ).'
+                                </td>
+                                <td>';
+                                    if($assign_job['WorkerJob']){
+                                        $workers= '';
+                                        foreach($assign_job['WorkerJob'] as $worker_job){
+                                            $workers.= $this->Html->link($worker_job['User']['first_name'].' '.$worker_job['User']['last_name'], array('controller'=>'Users', 'action' => 'details', $worker_job['User']['role_id'], $worker_job['User']['id'] ), array('target' => '_blank' ) ).', ';
+                                        }
+                                        $html .= substr($workers, 0, -2);
+                                    }
+
+                                $html.='</td>
+                            </tr>';
+                        }
+                    $html.='</table>
+                 </div>';
+
+        return $html;
+    }
+
+    function getRequirementType($requirement_type_id){
+        $assign_jobs = $this->requestAction('Requirements/get_requirement_type/'.$requirement_type_id );
+        return $assign_jobs['RequirementType']['name'];
+    }
 
 
+    function linkCount($string){
+        $links_array = explode("\n",$string);
+        $counter = 0;
+        foreach($links_array as $link){
 
-
-
-
-
-
+            if(trim($link)!=''){
+                $counter++;
+            }
+        }
+        return $counter;
+    }
 }
 

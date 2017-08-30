@@ -7,7 +7,11 @@
                 <td class="details_title">Job Name</td>
                 <td>:</td>
                 <td><?php echo $job['Job']['name'] ?></td>
-
+            </tr>
+            <tr>
+                <td class="details_title">Total Job Links</td>
+                <td>:</td>
+                <td><?php echo $total_links ?></td>
             </tr>
 
             <tr>
@@ -28,67 +32,25 @@
                     }
                     ?>
                 </td>
-
             </tr>
-
             <tr>
                 <td class="details_title">Create Date</td>
                 <td>:</td>
                 <td> <?php echo $this->Common->getDate($job['Job']['created']) ?></td>
-
             </tr>
 
             <tr>
                 <td class="details_title">Job Status</td>
                 <td>:</td>
                 <td><?php echo $job['Job']['job_status'] == 0 ? 'Pending': 'Completed'; ?></td>
-
             </tr>
 
             <tr>
                 <td class="details_title">Job Description</td>
                 <td>:</td>
                 <td><?php echo $job['Job']['job_description'] ?></td>
-
             </tr>
-
-            <tr>
-                <td class="details_title">Links</td>
-                <td>:</td>
-                <td><?php echo nl2br($job['Job']['links']) ?></td>
-
-            </tr>
-
-            <tr>
-                <td class="details_title">Total Link</td>
-                <td>:</td>
-                <td>
-                    <?php
-
-                    $string = $job['Job']['links'];
-                    $links_array = explode("\n",$string);
-                    $counter = 0;
-                    foreach($links_array as $link){
-
-                        if(trim($link)!=''){
-                            $counter++;
-
-                        }
-                    }
-                    echo $counter;
-
-                    ?>
-
-                </td>
-
-            </tr>
-
-
-
         </table>
-
-
-
     </div>
 
    <br><br>
@@ -97,22 +59,37 @@
 
        <table class="table">
            <tr>
-               <th>#id</th>
+               <th>#Id</th>
+               <th>Requirement Type</th>
                <th>Reference Code</th>
-               <th>Asin</th>
+               <th>ASIN</th>
+               <th>Amount</th>
                <th>Keyword</th>
                <th>Required Status</th>
+               <th>Present Status</th>
+               <th>Is Assign</th>
            </tr>
 
-           <?php foreach($job['AssignJob'] as  $requirement){ ?>
+           <?php $i=1; foreach($job['AssignJob'] as  $requirement){ ?>
            <tr>
-               <td><?php echo $requirement['Requirement']['id']?></td>
+               <td><?php echo $i ?></td>
+               <td><?php echo $this->Common->getRequirementType($requirement['Requirement']['requirement_type_id']); ?></td>
                <td><?php echo $requirement['Requirement']['reference_code'] ?></td>
                <td><?php echo $requirement['Requirement']['asin']?></td>
+               <td>$<?php echo $requirement['Requirement']['amount']?></td>
                <td><?php echo $requirement['Requirement']['keyword']?></td>
                <td><?php echo $requirement['Requirement']['required_status']?></td>
+               <td><?php echo $requirement['Requirement']['present_status']?></td>
+               <td width="300">
+                   <div><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</div>
+                   <?php
+                   if($requirement['Requirement']['is_assign']==1){
+                       echo $this->Common->getJobWorker($requirement['Requirement']['id']);
+                   }
+                   ?>
+               </td>
            </tr>
-           <?php } ?>
+           <?php $i++; } ?>
 
        </table>
    </div>
