@@ -95,7 +95,7 @@
            <tr>
                <td class="details_title">Links</td>
                <td>:</td>
-               <td><?php echo $requirement['Requirement']['links']?></td>
+               <td><?php echo nl2br($requirement['Requirement']['links'])?></td>
 
            </tr>
 

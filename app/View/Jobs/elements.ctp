@@ -8,6 +8,7 @@
 
 <div class="form-group"><?php echo $this->Form->input('user_id',array('multiple' => true, 'selected' => $get_job_workers, 'options'=> $get_workers,'empty'=>'-- Select Worker --', 'required'=>'required','label'=>'Worker <span>*</span>', 'class'=>'form-control')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('name',array('required'=>'required','label'=>'Job Name','class'=>'form-control')) ?></div>
+<div class="form-group"><?php echo $this->Form->input('job_status', array('class'=>'form-control', 'required'=>'required', 'options'=>array(0=>'Pending',1=>'Completed'), 'empty'=>'Select Status')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('job_description',array('label'=>'Job Description','class'=>'form-control')) ?></div>
     <div class="job_requirements">
         <label>Requirements</label>
