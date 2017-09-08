@@ -9,14 +9,16 @@
     <?php
     echo $this->Html->meta('icon');
 
+    $version = Configure::read('version');
+
     echo $this->Html->css(array(
-        'admin_style',
+        'admin_style.css?v='.$version,
         'bootstrap.min.3.0.3',
         'plugins/metisMenu/metisMenu.min',
         'plugins/timeline',
         'sb-admin-2',
         'jquery-ui',
-        'admin_custom',
+        'admin_custom.css?v='.$version,
         'plugins/morris',
         'font-awesome.min'
     ));
@@ -30,10 +32,10 @@
     echo $this->fetch('script');
     echo $this->Html->script('jquery');
     echo $this->Html->script('jquery-ui');
-    echo $this->Html->script('custom');
+    echo $this->Html->script('custom.js?v='.$version);
     echo $this->Html->script('jquery.validate');
     echo $this->Html->script('inflection');
-    echo $this->Html->script('custom_admin');
+    echo $this->Html->script('custom_admin.js?v='.$version);
 
     ?>
     <!--[if lt IE 9]>
@@ -151,9 +153,7 @@ echo $this->Html->script(
     array(
         'bootstrap.min.3.0.3',
         'plugins/metisMenu/metisMenu.min',
-        'sb-admin-2',
-        'custom'
-
+        'sb-admin-2'
     )
 );
 

@@ -35,8 +35,10 @@ $(function() {
     $( ".date_picker" ).datepicker({
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'dd/mm/yy'
     });
+
+    $( ".date_picker").readOnly(true);
 
 });
 

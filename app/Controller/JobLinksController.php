@@ -15,11 +15,31 @@ class JobLinksController extends AppController {
 
     public function admin_index() {
         $this->getJobLinks();
+
+        $worker_list = $this->User->getWorkers();
+        $this->set('worker_list',$worker_list);
     }
 
     function getJobLinks(){
         if($this->params['prefix'] == 'admin'){
-            $conditions = array('1=1');
+
+            if ($this->request->is('post')) {
+                $conditions = '1=1';
+                if(!empty($this->request->data['JobLink']['user_id'] ) ) {
+                    $conditions .= ' AND JobLink.user_id = '.$this->request->data['JobLink']['user_id'];
+                }
+
+                if(!empty($this->request->data['JobLink']['start_date'] ) and !empty($this->request->data['JobLink']['end_date'] )) {
+                    $start_date = $this->dateFormat($this->request->data['JobLink']['start_date']);
+                    $end_date = $this->dateFormat($this->request->data['JobLink']['end_date']);
+                    $conditions .= ' AND JobLink.created BETWEEN "'.$start_date.'" AND "'.$end_date.'"';
+                }
+
+                $conditions = array($conditions);
+            }else{
+                $conditions = array('1=1');
+            }
+
         }else{
             $conditions = array('JobLink.user_id' => $this->Session->read('Auth.User.id') );
         }
@@ -28,12 +48,17 @@ class JobLinksController extends AppController {
         $this->paginate = array(
             'conditions' => $conditions,
             'limit' => 30,
-            'order' => array('JobLinks.id' => 'desc')
+            'order' => array('JobLink.id' => 'desc')
         );
 
         $job_links = $this->paginate('JobLink');
 
         $this->set('job_links', $job_links);
+    }
+
+    function dateFormat($date){
+        $start_date = explode('/',$date);
+        return $start_date[2].'-'.$start_date[1].'-'.$start_date[0];
     }
 
 
