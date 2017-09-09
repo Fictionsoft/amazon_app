@@ -43,14 +43,15 @@ class ApiMwsComponent extends Component {
 
 
         //$t1 = date("c", time()-1*24*60*60);
-        $fromDate = new DateTime('2017-05-05');
+        $fromDate = new DateTime('2017-09-06');
         $orders = $client->ListOrders($fromDate, true);
-
+        echo '<pre>';
         foreach ($orders as $order) {
             $items = $client->ListOrderItems($order['AmazonOrderId']);
             print_r($order);
             print_r($items);
         }
+
     }
 
 

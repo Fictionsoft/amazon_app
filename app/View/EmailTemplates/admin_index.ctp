@@ -1,29 +1,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4"><h3>Email Template List</h3></div>
-
-        <!--<div class="col-md-3 top_space">
-            <?php /*echo $this->Form->create('EmailTemplate') */?>
-                <div class="input-group custom-search-form">
-                    <?php /*echo $this->Form->input('filter',array('placeholder'=>'Search...','class'=>'form-control','label'=>false) ) */?>
-                    <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                </div>
-            <?php /*echo $this->Form->end() */?>
-        </div>-->
-        <!--<div class="col-md-2 top_space">
-            <?php
-/*            echo '<div class="reset-button">'.$this->Html->link('Reset',array('controller' => 'email_templates', 'action' => 'reset', 'admin' =>true),array('class'=>'btn btn-primary')).'</div>';
-            */?>
-        </div>-->
         <div class="col-md-2 top_space">
             <?php
             echo $this->Html->link(
                 'Add new',
-                '/admin/email_templates/create',
+                '/admin/EmailTemplates/create',
                 array('class' => 'btn btn-primary')
             );
             ?>

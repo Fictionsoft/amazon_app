@@ -27,7 +27,11 @@
                <td class="details_title">Amount</td>
                <td>:</td>
                <td>$<?php echo $requirement['Requirement']['amount']?></td>
-
+           </tr>
+           <tr>
+               <td class="details_title">Present Ranking</td>
+               <td>:</td>
+               <td><?php echo $requirement['Requirement']['present_ranking']?></td>
            </tr>
 
            <tr>

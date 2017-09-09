@@ -5,11 +5,11 @@ class UsersController extends AppController {
     var $name = 'Users';
     public $helpers = array('Html', 'Form');
     public $uses = array('User','WorkerJob','Role');
-    public $components = array( 'Common', 'Auth', 'Session', 'Cookie', 'RequestHandler', 'Email', 'PaymentHandlerPaypal' );
+    public $components = array( 'Common', 'Auth', 'Session', 'Cookie', 'RequestHandler', 'Email', 'PaymentHandlerPaypal','ApiMws' );
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('login','signup','forgot_password','contact','is_user_available','is_invalid_email','reset_password'));
+        $this->Auth->allow(array('login','signup','forgot_password','contact','is_user_available','is_invalid_email','reset_password','get_list_orders' ) );
     }
 
     /*
@@ -694,6 +694,11 @@ class UsersController extends AppController {
     public function user_dashboard(){
 
 
+    }
+
+    public function get_list_orders(){
+        $this->autoRender = false;
+        $this->ApiMws->getListOrders();die;
     }
 
 

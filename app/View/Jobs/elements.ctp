@@ -23,6 +23,7 @@
                 <th>Keyword</th>
                 <th>Required Status</th>
                 <th>Present Status</th>
+                <th>Present Ranking</th>
                 <th>Is Assign</th>
             </tr>
             <?php
@@ -48,6 +49,7 @@
                 <td><?php echo $requirement['Requirement']['keyword']?></td>
                 <td><?php echo $requirement['Requirement']['required_status']?></td>
                 <td><?php echo $requirement['Requirement']['present_status']?></td>
+                <td><?php echo $requirement['Requirement']['present_ranking']?></td>
                 <td width="300">
                     <div><?php echo $this->element('admin/toggle', array('status' => $requirement['Requirement']['is_assign'] )) ?>&nbsp;</div>
                     <?php

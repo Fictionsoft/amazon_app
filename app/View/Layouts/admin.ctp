@@ -85,14 +85,16 @@
         </ul>
         <!-- /.navbar-top-links -->
 
-
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
+                <?php if($this->params['controller']=='EmailTemplates' and ($this->params['action']=='admin_create' or $this->params['action']=='admin_update') ){ ?>
+                    <div>Variables</div>
+                <?php } ?>
+
                 <ul class="nav" id="side-menu">
                     <li>
                         <a href="<?php echo $this->base;?>/admin/dashboards/display" class="<?php echo ($this->params['controller']=='dashboards' AND $this->params['action']=='admin_display')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Dashboard <span class="fa arrow"></span></a>
                     </li>
-
                     <?php
 
                     if(!empty($left_navigation)){

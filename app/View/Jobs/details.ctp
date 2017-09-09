@@ -43,22 +43,28 @@
 
                     <table class="table">
                         <tr>
-                            <th>#id</th>
+                            <th>#Id</th>
+                            <th>Requirement Type</th>
                             <th>Reference Code</th>
-                            <th>Asin</th>
+                            <th>ASIN</th>
                             <th>Keyword</th>
                             <th>Required Status</th>
+                            <th>Present Status</th>
+                            <th>Present Ranking</th>
                         </tr>
 
-                        <?php foreach($job['AssignJob'] as  $requirement){ ?>
+                        <?php $i=1; foreach($job['AssignJob'] as  $requirement){ ?>
                             <tr>
-                                <td><?php echo $requirement['Requirement']['id']?></td>
+                                <td><?php echo $i ?></td>
+                                <td><?php echo $this->Common->getRequirementType($requirement['Requirement']['requirement_type_id']); ?></td>
                                 <td><?php echo $requirement['Requirement']['reference_code'] ?></td>
                                 <td><?php echo $requirement['Requirement']['asin']?></td>
                                 <td><?php echo $requirement['Requirement']['keyword']?></td>
                                 <td><?php echo $requirement['Requirement']['required_status']?></td>
+                                <td><?php echo $requirement['Requirement']['present_status']?></td>
+                                <td><?php echo $requirement['Requirement']['present_ranking']?></td>
                             </tr>
-                        <?php } ?>
+                            <?php $i++; } ?>
 
                     </table>
                 </div>

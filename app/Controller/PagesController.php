@@ -36,6 +36,7 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array();
+    public $components = array('ApiMws');
 
 /**
  * Displays a view
@@ -77,4 +78,6 @@ class PagesController extends AppController {
 
     public function contact_us(){}
     public function about_us(){}
+
+
 }

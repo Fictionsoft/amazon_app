@@ -12,7 +12,7 @@
                                 <ul>
                                     <li><a href="#">About Us</a></li>
                                     <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Trams And Codition</a></li>
+                                    <li><a href="#">Trams And Condition</a></li>
                                     <li><a href="#">Privacy policy</a></li>
                                 </ul>
                             </div>
