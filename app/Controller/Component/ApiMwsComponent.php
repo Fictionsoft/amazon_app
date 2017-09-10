@@ -26,7 +26,7 @@ class ApiMwsComponent extends Component {
     }
 
     function getListOrders(){
-        $client = new MCS\MWSClient([
+        /*$client = new MCS\MWSClient([
             'Marketplace_Id' => 'ATVPDKIKX0DER',
             'Seller_Id' => 'A10YV6NTBY6VOS',
             'Access_Key_ID' => 'AKIAJIEKAODR7KSYYMXQ',
@@ -50,7 +50,7 @@ class ApiMwsComponent extends Component {
             $items = $client->ListOrderItems($order['AmazonOrderId']);
             print_r($order);
             print_r($items);
-        }
+        }*/
 
     }
 

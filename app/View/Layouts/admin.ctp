@@ -87,11 +87,103 @@
 
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <?php if($this->params['controller']=='EmailTemplates' and ($this->params['action']=='admin_create' or $this->params['action']=='admin_update') ){ ?>
-                    <div>Variables</div>
-                <?php } ?>
-
                 <ul class="nav" id="side-menu">
+                    <?php if($this->params['controller']=='EmailTemplates' and ($this->params['action']=='admin_create' or $this->params['action']=='admin_update') ){ ?>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Buyer Info<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html">Buyer Name</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">First Name</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Buyer Email</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Order Info<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Product Name</a>
+                                </li>
+                                <li>
+                                    <a href="#">Order Id</a>
+                                </li>
+                                <li>
+                                    <a href="#">Msku</a>
+                                </li>
+                                <li>
+                                    <a href="#">Asin</a>
+                                </li>
+                                <li>
+                                    <a href="#">Quantity</a>
+                                </li>
+                                <li>
+                                    <a href="#">Price Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Price Shipping</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Condition Note</a>
+                                </li>
+                                <li>
+                                    <a href="#">Order Id</a>
+                                </li>
+                                <li>
+                                    <a href="#">Recipient</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Purchase Date</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Shipping Info<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Ship Address1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ship Address2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ship City</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ship State</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ship Zip</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ship Country</a>
+                                </li>
+                                <li>
+                                    <a href="#">Carrier</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tracking Number</a>
+                                </li>
+                                <li>
+                                    <a href="#">Estimated Arrival</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                    <?php } ?>
+
                     <li>
                         <a href="<?php echo $this->base;?>/admin/dashboards/display" class="<?php echo ($this->params['controller']=='dashboards' AND $this->params['action']=='admin_display')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Dashboard <span class="fa arrow"></span></a>
                     </li>

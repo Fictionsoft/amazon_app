@@ -38,7 +38,7 @@ $(function() {
         dateFormat: 'dd/mm/yy'
     });
 
-    $( ".date_picker").readOnly(true);
+    //$( ".date_picker").readOnly(true);
 
 });
 
