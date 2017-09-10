@@ -85,11 +85,11 @@ if(!empty($users)){
 
            echo '&nbsp; &nbsp;';
             // Delete
-           echo $this->Form->postLink(
+           /*echo $this->Form->postLink(
                 'Delete',
                 array('action' => '/delete', $user['User']['id']),
                 array('confirm' => 'Are you sure you want to delete this User?')
-            );
+            );*/
            ?>
         </td>
 
