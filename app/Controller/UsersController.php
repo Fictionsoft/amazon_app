@@ -347,8 +347,6 @@ class UsersController extends AppController {
 
             if($current_password === $user['User']['password']) {
 
-
-
                 $this->request->data['User']['id'] = $user['User']['id'];
 
                 if($this->User->save($this->request->data)){
