@@ -82,7 +82,7 @@ if($jobs){
                 // edit link
                 echo $this->Html->link("Edit", array('action' => 'update', $job['Job']['id'])).'&nbsp;&nbsp;';
                 //delete link
-                echo $this->Form->postLink('Delete', array('action' => 'delete', $job['Job']['id']),array('confirm' => 'Are you sure you want to delete this Job?')).'&nbsp;&nbsp';
+                //echo $this->Form->postLink('Delete', array('action' => 'delete', $job['Job']['id']),array('confirm' => 'Are you sure you want to delete this Job?')).'&nbsp;&nbsp';
 
                 ?>
             </td>

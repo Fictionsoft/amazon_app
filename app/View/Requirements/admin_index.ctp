@@ -92,7 +92,7 @@ if($requirements){
                     // Edit link
                     echo $this->Html->link("Edit", array('action' => 'update', $requirement['Requirement']['id'])).'&nbsp;&nbsp;';
                     //delete link
-                    echo $this->Form->postLink('Delete', array('action' => 'delete', $requirement['Requirement']['id']),array('confirm' => 'Are you sure you want to delete this Requirement?'));
+                    //echo $this->Form->postLink('Delete', array('action' => 'delete', $requirement['Requirement']['id']),array('confirm' => 'Are you sure you want to delete this Requirement?'));
                 ?>
             </td>
        </tr>
