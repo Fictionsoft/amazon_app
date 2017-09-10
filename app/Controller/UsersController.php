@@ -461,6 +461,8 @@ class UsersController extends AppController {
 
             $this->User->create();
             $role_id = $this->request->data['User']['role_id'];
+            $this->request->data['User']['username'] = $this->request->data['User']['email'];
+
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash("User has been successfully created",'default',array('class'=>'alert alert-success'));
                 return $this->redirect(array('action' => 'admin_index',$role_id));
@@ -516,6 +518,7 @@ class UsersController extends AppController {
 
             $this->User->id = $id;
             $role_id = $this->request->data['User']['role_id'];
+            $this->request->data['User']['username'] = $this->request->data['User']['email'];
 
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash("Data has been updated.",'default',array('class'=>'alert alert-success'));
