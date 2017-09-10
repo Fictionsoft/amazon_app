@@ -93,13 +93,13 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Buyer Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Buyer Name</a>
+                                    <a href="panels-wells.html">[[buyer-name]]</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">First Name</a>
+                                    <a href="buttons.html">[[first-name]]</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html">Buyer Email</a>
+                                    <a href="notifications.html">[[buyer-email]]</a>
                                 </li>
 
                             </ul>
@@ -110,38 +110,36 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Order Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Product Name</a>
+                                    <a href="#">[[product-name]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Order Id</a>
+                                    <a href="#">[[order-id]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Msku</a>
+                                    <a href="#">[[msku]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Asin</a>
+                                    <a href="#">[[asin]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Quantity</a>
+                                    <a href="#">[[quantity]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Price Item</a>
+                                    <a href="#">[[price-item]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Price Shipping</a>
+                                    <a href="#">[[price-shipping]]</a>
                                 </li>
                                 <li>
-                                    <a href="#"> Condition Note</a>
+                                    <a href="#"> [[condition-note]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Order Id</a>
+                                    <a href="#">[[recipient]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Recipient</a>
+                                    <a href="#">[[purchase-date]]</a>
                                 </li>
-                                <li>
-                                    <a href="#"> Purchase Date</a>
-                                </li>
+
 
                             </ul>
                             <!-- /.nav-second-level -->
@@ -151,36 +149,73 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>Shipping Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Ship Address1</a>
+                                    <a href="#">[[ship-address1]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ship Address2</a>
+                                    <a href="#">[[ship-address2]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ship City</a>
+                                    <a href="#">[[ship-city]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ship State</a>
+                                    <a href="#">[[ship-state]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ship Zip</a>
+                                    <a href="#">[[ship-zip]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ship Country</a>
+                                    <a href="#">[[ship-country]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Carrier</a>
+                                    <a href="#">[[carrier]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Tracking Number</a>
+                                    <a href="#">[[tracking-number]]</a>
                                 </li>
                                 <li>
-                                    <a href="#">Estimated Arrival</a>
+                                    <a href="#">[[estimated-arrival]]</a>
                                 </li>
 
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Links<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">[[feedback-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[contact-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[order-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[product-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[product-review-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[tracking-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[store-link]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[store-link-alt]]</a>
+                                </li>
+                                <li>
+                                    <a href="#">[[unsubscribe-link]]</a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
 
                     <?php } ?>
 
