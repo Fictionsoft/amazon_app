@@ -93,13 +93,13 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Buyer Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">[[buyer-name]]</a>
+                                    <a href="#">[[buyer-name]]</a>
                                 </li>
                                 <li>
-                                    <a href="buttons.html">[[first-name]]</a>
+                                    <a href="#">[[first-name]]</a>
                                 </li>
                                 <li>
-                                    <a href="notifications.html">[[buyer-email]]</a>
+                                    <a href="#">[[buyer-email]]</a>
                                 </li>
 
                             </ul>
@@ -215,39 +215,51 @@
                             <!-- /.nav-second-level -->
                         </li>
 
-
-
                     <?php } ?>
 
-                    <li>
-                        <a href="<?php echo $this->base;?>/admin/dashboards/display" class="<?php echo ($this->params['controller']=='dashboards' AND $this->params['action']=='admin_display')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Dashboard <span class="fa arrow"></span></a>
-                    </li>
+
                     <?php
-
-                    if(!empty($left_navigation)){
-
-                       //pr($this->params['pass']); die;
+                        //pr($this->params['pass']); die;
 
                         if(isset($this->params['pass'][0])){
                             $pass = $this->params['pass'][0];
                         }else{
                             $pass = null;
                         }
-                        foreach($left_navigation as $navigation){
 
-                            if($navigation['Dashboard']['url'] == 'users'){
-                                // Worker id 2
-                                // Client id 3
-                                ?>
-                                <li><a href="<?php echo $this->base.'/admin/'.$navigation['Dashboard']['url'].'/index/2' ?>" class="<?php echo ($this->params['controller']==$navigation['Dashboard']['url'] and $pass == 2 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Workers<span class="fa arrow"></span></a></li>
-                                <li><a href="<?php echo $this->base.'/admin/'.$navigation['Dashboard']['url'].'/index/3' ?>" class="<?php echo ($this->params['controller']==$navigation['Dashboard']['url'] and $pass == 3 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Clients<span class="fa arrow"></span></a></li>
-
-                            <?php  continue; } ?>
-                            <li><a href="<?php echo $this->base.'/admin/'.$navigation['Dashboard']['url'] ?>" class="<?php echo ($this->params['controller']==$navigation['Dashboard']['url'])?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i><?php echo $navigation['Dashboard']['name'] ?><span class="fa arrow"></span></a></li>
-                    <?php
-                        }
-                    }
                     ?>
+
+
+                    <li>
+                        <a href="<?php echo $this->base;?>/admin/dashboards/display" class="<?php echo ($this->params['controller']=='dashboards' AND $this->params['action']=='admin_display')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Dashboard <span class="fa arrow"></span></a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Amazon App<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo $this->base?>/admin/emailtemplates" class="<?php echo ($this->params['controller']=='emailtemplates' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Email Templates<span class="fa arrow"></span></a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Works<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo $this->base;?>/admin/requirements" class="<?php echo ($this->params['controller']=='requirements' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Requirements <span class="fa arrow"></span></a></li>
+                            <li><a href="<?php echo $this->base;?>/admin/jobs" class="<?php echo ($this->params['controller']=='jobs' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Jobs <span class="fa arrow"></span></a></li>
+                            <li><a href="<?php echo $this->base;?>/admin/joblinks" class="<?php echo ($this->params['controller']=='joblinks' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Job Links <span class="fa arrow"></span></a></li>
+
+                            <li><a href="<?php echo $this->base; ?>/admin/users/index/3" class="<?php echo ($this->params['controller']=='users' and $pass == 3 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Clients<span class="fa arrow"></span></a></li>
+                            <li><a href="<?php echo $this->base; ?>/admin/users/index/2" class="<?php echo ($this->params['controller']=='users' and $pass == 2 )?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Workers<span class="fa arrow"></span></a></li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a href="<?php echo $this->base;?>/admin/settings" class="<?php echo ($this->params['controller']=='settings' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Settings <span class="fa arrow"></span></a>
+                    </li>
+
 
                 </ul>
             </div>
