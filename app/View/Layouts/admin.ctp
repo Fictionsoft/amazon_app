@@ -22,8 +22,6 @@
         'plugins/morris',
         'font-awesome.min'
     ));
-
-
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo "\n" . '<script type="text/javascript">var BASE_URL = \'' . $this->Html->url('/', true) . '\';</script>';
