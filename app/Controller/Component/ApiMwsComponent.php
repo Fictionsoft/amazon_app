@@ -26,7 +26,7 @@ class ApiMwsComponent extends Component {
     }
 
     function getListOrders(){
-        /*$client = new MCS\MWSClient([
+        $client = new MCS\MWSClient([
             'Marketplace_Id' => 'ATVPDKIKX0DER',
             'Seller_Id' => 'A10YV6NTBY6VOS',
             'Access_Key_ID' => 'AKIAJIEKAODR7KSYYMXQ',
@@ -43,15 +43,14 @@ class ApiMwsComponent extends Component {
 
 
         //$t1 = date("c", time()-1*24*60*60);
-        $fromDate = new DateTime('2017-09-06');
+        $fromDate = new DateTime('2017-09-20');
         $orders = $client->ListOrders($fromDate, true);
-        echo '<pre>';
+        $orders_new = array();
         foreach ($orders as $order) {
             $items = $client->ListOrderItems($order['AmazonOrderId']);
-            print_r($order);
-            print_r($items);
-        }*/
-
+            $orders_new[]['order'] = json_encode(array('order' => $order, 'items' => $items));
+        }
+        return $orders_new;
     }
 
 

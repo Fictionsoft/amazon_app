@@ -51,6 +51,7 @@
                             <th>Required Status</th>
                             <th>Present Status</th>
                             <th>Present Ranking</th>
+                            <th>Action</th>
                         </tr>
 
                         <?php $i=1; foreach($job['AssignJob'] as  $requirement){ ?>
@@ -63,6 +64,11 @@
                                 <td><?php echo $requirement['Requirement']['required_status']?></td>
                                 <td><?php echo $requirement['Requirement']['present_status']?></td>
                                 <td><?php echo $requirement['Requirement']['present_ranking']?></td>
+                                <td>
+                                    <?php
+                                    echo $this->Html->link("View", array('controller'=>'Requirements','action' => 'details', $requirement['Requirement']['id'], $job['Job']['id'] ) ).'&nbsp;&nbsp;';
+                                    ?>
+                                </td>
                             </tr>
                             <?php $i++; } ?>
 

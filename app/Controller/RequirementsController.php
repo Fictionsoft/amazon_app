@@ -130,7 +130,19 @@ class RequirementsController extends AppController {
     public function admin_details($id){
         $requirement = $this->Requirement->findById($id);
         $this->set('requirement',$requirement);
+    }
 
+    public function details($id,$job_id){
+        if($this->request->is('post')){
+            $this->Requirement->id = $id;
+            if($this->Requirement->save( $this->request->data)){
+                $this->Session->setFlash("Requirement status has been updated successfully!",'default',array('class'=>'alert alert-success'));
+                return $this->redirect(array('controller'=>'jobs', 'action' => 'details/'.$job_id ));
+            }
+        }
+
+        $requirement = $this->Requirement->findById($id);
+        $this->set('requirement',$requirement);
     }
 
 

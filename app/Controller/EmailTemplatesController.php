@@ -41,6 +41,7 @@ class EmailTemplatesController extends AppController {
      * @return null
      */
     public function admin_create() {
+
         if ($this->request->is('post')) {
 
             // START : File upload
@@ -63,6 +64,10 @@ class EmailTemplatesController extends AppController {
             $this->EmailTemplate->create();
 
             if ($this->EmailTemplate->save($this->request->data)) {
+                $id = $this->EmailTemplate->getInsertID();
+
+                $this->getEmailContent($id);
+
                 $this->Session->setFlash("Email template has been successfully added",'default',array('class'=>'alert alert-success'));
                 $this->redirect(array('action' => 'admin_index'));
             }
@@ -72,6 +77,8 @@ class EmailTemplatesController extends AppController {
             // populate EmailTemplate_package table
 
         }
+
+        $this->set('message', null);
     }
 
     /**
@@ -82,6 +89,8 @@ class EmailTemplatesController extends AppController {
         if (!$id) {
             throw new NotFoundException(__('Invalid request !'));
         }
+
+        $message = $this->getEmailContent($id);
 
         $email_template= $this->EmailTemplate->findById($id);
 
@@ -121,6 +130,8 @@ class EmailTemplatesController extends AppController {
         if (!$this->request->data) {
             $this->request->data = $email_template;
         }
+
+        $this->set('message', $message);
     }
 
 
@@ -168,6 +179,35 @@ class EmailTemplatesController extends AppController {
         $this->set('template', $template);
 
     }
+
+    // CK Editor: Start
+    function getEmailContent($id = null){
+
+        $filepath = WWW_ROOT.'uploads'.DS.'emailtemplates';
+
+        if (!is_dir($filepath) && !is_file($filepath)) {
+            $this->FileHandler->createFolder($filepath, '0777');
+        }
+
+        $path = $filepath.DS.$id.'.txt';
+
+        if(is_file($path)) {
+            $this->file = new File($path, true);
+            $content = $this->file->read();
+
+        }else{
+            $create_file = fopen($path,"wb");
+            fclose($create_file);
+            $content = '';
+        }
+
+        if (!empty($this->request->data) ) {
+            $this->file->write($this->request->data['EmailTemplate']['message']);
+        }
+
+        return $content;
+    }
+    // CK Editor: End
 
 
 

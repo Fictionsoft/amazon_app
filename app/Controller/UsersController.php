@@ -5,7 +5,7 @@ class UsersController extends AppController {
     var $name = 'Users';
     public $helpers = array('Html', 'Form');
     public $uses = array('User','WorkerJob','Role');
-    public $components = array( 'Common', 'Auth', 'Session', 'Cookie', 'RequestHandler', 'Email', 'PaymentHandlerPaypal','ApiMws' );
+    public $components = array( 'Common', 'Auth', 'Session', 'Cookie', 'RequestHandler', 'Email', 'PaymentHandlerPaypal');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -694,16 +694,7 @@ class UsersController extends AppController {
 
     public function user_dashboard(){
 
-
     }
-
-    public function get_list_orders(){
-        $this->autoRender = false;
-        $this->ApiMws->getListOrders();die;
-    }
-
-
-
 
 }
 ?>
