@@ -23,7 +23,6 @@
         'font-awesome.min'
     ));
 
-
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo "\n" . '<script type="text/javascript">var BASE_URL = \'' . $this->Html->url('/', true) . '\';</script>';
@@ -90,7 +89,7 @@
                 <ul class="nav" id="side-menu">
                     <?php if($this->params['controller']=='EmailTemplates' and ($this->params['action']=='admin_create' or $this->params['action']=='admin_update') ){ ?>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Buyer Info<span class="fa arrow"></span></a>
+                            <a href="#"> Buyer Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">[[buyer-name]]</a>
@@ -107,7 +106,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Order Info<span class="fa arrow"></span></a>
+                            <a href="#">Order Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">[[product-name]]</a>
@@ -146,7 +145,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Shipping Info<span class="fa arrow"></span></a>
+                            <a href="#">Shipping Info<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">[[ship-address1]]</a>
@@ -181,7 +180,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Links<span class="fa arrow"></span></a>
+                            <a href="#">Links<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">[[feedback-link]]</a>
@@ -215,6 +214,10 @@
                             <!-- /.nav-second-level -->
                         </li>
 
+                        <div style="height: 2px; background:#ddd; margin-bottom: 45px;"></div>
+                        <div style="height: 1px; background:#ddd;"></div>
+
+
                     <?php } ?>
 
 
@@ -236,7 +239,7 @@
 
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Amazon App<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level <?php echo ($this->params['controller']=='emailtemplates')? 'in':' ' ?>">
                             <li><a href="<?php echo $this->base?>/admin/emailtemplates" class="<?php echo ($this->params['controller']=='emailtemplates' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i>Email Templates<span class="fa arrow"></span></a></li>
 
                         </ul>
@@ -244,7 +247,7 @@
 
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Works<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
+                        <ul class="nav nav-second-level <?php echo( $this->params['controller'] == 'requirements' OR $this->params['controller'] == 'jobs'  OR $this->params['controller'] == 'joblinks'  OR $this->params['controller'] == 'users' ) ? 'in': ' '; ?>">
                             <li><a href="<?php echo $this->base;?>/admin/requirements" class="<?php echo ($this->params['controller']=='requirements' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Requirements <span class="fa arrow"></span></a></li>
                             <li><a href="<?php echo $this->base;?>/admin/jobs" class="<?php echo ($this->params['controller']=='jobs' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Jobs <span class="fa arrow"></span></a></li>
                             <li><a href="<?php echo $this->base;?>/admin/joblinks" class="<?php echo ($this->params['controller']=='joblinks' AND $this->params['action']=='admin_index')?'active':'' ?>"><i class="fa fa-wrench fa-fw"></i> Job Links <span class="fa arrow"></span></a></li>
