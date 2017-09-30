@@ -66,7 +66,7 @@ class EmailTemplatesController extends AppController {
             if ($this->EmailTemplate->save($this->request->data)) {
                 $id = $this->EmailTemplate->getInsertID();
 
-                $this->getEmailContent($id);
+                //$this->getEmailContent($id);
 
                 $this->Session->setFlash("Email template has been successfully added",'default',array('class'=>'alert alert-success'));
                 $this->redirect(array('action' => 'admin_index'));
@@ -90,7 +90,7 @@ class EmailTemplatesController extends AppController {
             throw new NotFoundException(__('Invalid request !'));
         }
 
-        $message = $this->getEmailContent($id);
+        //$message = $this->getEmailContent($id);
 
         $email_template= $this->EmailTemplate->findById($id);
 
@@ -131,7 +131,7 @@ class EmailTemplatesController extends AppController {
             $this->request->data = $email_template;
         }
 
-        $this->set('message', $message);
+        //$this->set('message', $email_template);
     }
 
 

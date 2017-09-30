@@ -2,7 +2,7 @@
 <?php /*echo $this->Form->input('file_name',array('type'=>'hidden','value'=>$name))*/?>
 <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
 <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
-<div class="form-group"><?php echo $this->Form->input('message',array('class'=>'form-control','required'=>'required', 'value' => $message, 'id'=>'editor1' ) ) ?></div>
+<div class="form-group"><?php echo $this->Form->input('message',array('class'=>'form-control','required'=>'required', 'id'=>'editor1' ) ) ?></div>
 <!--
 <?php /*if(!empty($this->request->data['EmailTemplate']['id'])){ */?>
     <div class="form-group"><?php /*echo $this->Html->image($this->element( 'default_photo_selector', array( 'photo'=>$this->data['EmailTemplate']['image'],'dir'=>'emailtemplates' ) ), array('alt' => 'Email template image','width'=>'150')) */?></div>
