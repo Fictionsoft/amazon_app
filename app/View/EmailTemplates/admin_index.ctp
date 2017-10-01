@@ -42,7 +42,6 @@ if($email_templates){
                     echo $this->Html->link("Edit", array('action' => 'update', $email_template['EmailTemplate']['id'])).'&nbsp;&nbsp;';
                     //delete link
                     echo $this->Form->postLink('Delete', array('action' => 'delete', $email_template['EmailTemplate']['id']),array('confirm' => 'Are you sure you want to delete this EmailTemplate?'))."&nbsp;&nbsp";
-                    
                 ?>
             </td>
        </tr>

@@ -78,7 +78,6 @@
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-
             <?php } ?>
             <!-- /.dropdown -->
         </ul>
