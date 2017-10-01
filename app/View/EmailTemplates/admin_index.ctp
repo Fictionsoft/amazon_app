@@ -24,7 +24,7 @@ if($email_templates){
         <th>#Id</th>
         <th><?php echo $paginator->sort('template_name')?></th>
         <th><?php echo $paginator->sort('subject')?></th>
-        <!--<th><?php /*echo $paginator->sort('status') */?></th>-->
+        <th><?php echo $paginator->sort('status') ?></th>
         <th>Action</th>
     </tr>
     <?php
@@ -35,7 +35,7 @@ if($email_templates){
             <td><?php echo $i ?> </td>
             <td><?php echo $email_template['EmailTemplate']['template_name'] ?></td>
             <td><?php echo $email_template['EmailTemplate']['subject'] ?></td>
-            <!--<td class="center"><?php /*echo $this->element('admin/toggle', array('status' => $email_template['EmailTemplate']['status'] )) */?>&nbsp;</td>-->
+            <td class="center"><?php echo $this->element('admin/toggle', array('status' => $email_template['EmailTemplate']['status'] )) ?>&nbsp;</td>
             <td>
                 <?php
                     // edit link
