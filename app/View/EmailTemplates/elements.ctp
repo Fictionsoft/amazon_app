@@ -21,7 +21,7 @@
 
     <div id="email-tem-stp-2" style="display:none">
 
-        <a href="javascript:void(0)" id="email-tem-form-prev" class="btn btn-primary">Previous</a><br><br><br>
+        <a href="javascript:void(0)" id="email-tem-form-prev" class="btn btn-primary">Previous</a><br><br>
         <h4>Second Step</h4>
         <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
         <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
@@ -29,9 +29,9 @@
     </div>
 
 
-
-
 <script>
+
+    // Email template form step next < id = "email-tem-next" >
     $(document).ready(function(){
         $("#email-tem-next").click(function(){
             $("#email-tem-stp-2").show("slow");
@@ -45,20 +45,6 @@
         });
 
     });
-
-
-
-
-
-
-</script>
-
-
-<script>
-
-
-    // Email template form step next < id = "email-tem-next" >
-
 
 
     // Replace the <textarea id="editor1"> with a CKEditor
