@@ -1,5 +1,5 @@
 <?php echo $this->Html->script('/ckeditor/ckeditor') ?>
-    <div id="email-tem-stp-1">
+    <div id="emailTemFormStp-1">
         <?php /*echo $this->Form->input('file_name',array('type'=>'hidden','value'=>$name))*/?>
         <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
         <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
@@ -14,14 +14,14 @@
 
         <div class="form-group is-publish"><?php echo $this->Form->input('status') ?></div>
 
-        <a href="javascript:void(0)" id="email-tem-next" class="btn btn-primary">Next</a><br><br><br>
+        <a href="javascript:void(0)" id="emailTemFormNext" class="btn btn-primary">Next</a><br><br><br>
 
     </div>
 
 
-    <div id="email-tem-stp-2" style="display:none">
+    <div id="emailTemFormStp-2" style="display:none">
 
-        <a href="javascript:void(0)" id="email-tem-form-prev" class="btn btn-primary">Previous</a><br><br>
+        <a href="javascript:void(0)" id="emailTemFormPrev" class="btn btn-primary">Previous</a><br><br>
         <h4>Second Step</h4>
         <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
         <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
@@ -33,14 +33,14 @@
 
     // Email template form step next < id = "email-tem-next" >
     $(document).ready(function(){
-        $("#email-tem-next").click(function(){
-            $("#email-tem-stp-2").show("slow");
-            $("#email-tem-stp-1").hide("slow");
+        $("#emailTemFormNext").click(function(){
+            $("#emailTemFormStp-2").show("slow");
+            $("#emailTemFormStp-1").hide("slow");
         });
 
-        $("#email-tem-form-prev").click(function(){
-            $("#email-tem-stp-1").show("slow");
-            $("#email-tem-stp-2").hide("slow");
+        $("#emailTemFormPrev").click(function(){
+            $("#emailTemFormStp-1").show("slow");
+            $("#emailTemFormStp-2").hide("slow");
 
         });
 
