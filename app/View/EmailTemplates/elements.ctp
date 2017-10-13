@@ -26,38 +26,38 @@
 
         <?php
             $options_imd = array(
-                '1 days' => '1 days',
-                '2 days' => '2 days',
-                '3 days' => '3 days',
-                '4 days' => '4 days',
-                '5 days' => '5 days',
-                '6 days' => '6 days',
-                '7 days' => '7 days',
-                '8 days' => '8 days',
-                '9 days' => '9 days',
-                '10 days' => '10 days',
-                '11 days' => '11 days',
-                '12days' => '12 days',
-                '13 days' => '13 days',
-                '14 days' => '14 days',
-                '15 days' => '15 days',
-                '16 days' => '16 days',
-                '17 days' => '17 days',
-                '18 days' => '18 days',
-                '19 days' => '19 days',
-                '20 days' => '20 days',
-                '21 days' => '21 days',
-                '4 weeks' => '4 weeks',
-                '5 weeks' => '5 weeks',
-                '6 weeks' => '6 weeks',
-                '7 weeks' => '7 weeks',
-                '8 weeks' => '8 weeks',
-                '9 weeks' => '9 weeks',
-                '10 weeks' => '10 weeks'
+                '1' => '1 days',
+                '2' => '2 days',
+                '3' => '3 days',
+                '4' => '4 days',
+                '5' => '5 days',
+                '6' => '6 days',
+                '7' => '7 days',
+                '8' => '8 days',
+                '9' => '9 days',
+                '10' => '10 days',
+                '11' => '11 days',
+                '12' => '12 days',
+                '13' => '13 days',
+                '14' => '14 days',
+                '15' => '15 days',
+                '16' => '16 days',
+                '17' => '17 days',
+                '18' => '18 days',
+                '19' => '19 days',
+                '20' => '20 days',
+                '21' => '21 days',
+                '4*7' => '4 weeks',
+                '5*7' => '5 weeks',
+                '6*7' => '6 weeks',
+                '7*7' => '7 weeks',
+                '8*7' => '8 weeks',
+                '9*7' => '9 weeks',
+                '10*7' => '10 weeks'
 
             );
 
-        $options_day = array(
+            $options_day = array(
             '1 days' => '1 days',
             '2 days' => '2 days',
             '3 days' => '3 days',
@@ -79,7 +79,6 @@
             '19 days' => '19 days',
             '20 days' => '20 days',
             '21 days' => '21 days'
-
         );
 
         $options_del = array(
@@ -94,10 +93,27 @@
         );
 
         ?>
-        <div class="form-group"><?php echo $this->Form->input('immediately',array('options'=> $options_imd,'empty'=>'immediately','class'=>'form-control')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('delivered',array('options'=>$options_del,'empty'=>'delivered','class'=>'form-control')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('day',array('options'=>$options_day,'label'=>'only if the delivery takes less than','class'=>'form-control' ) ) ?></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <?php echo $this->Form->input('immediately',array('options'=> $options_imd,'empty'=>'immediately','class'=>'form-control')) ?>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <?php echo $this->Form->input('delivered',array('options'=>$options_del,'empty'=>'delivered','class'=>'form-control')) ?>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <?php echo $this->Form->input('day',array('options'=>$options_day,'label'=>'Only if the delivery takes less than','class'=>'form-control' ) ) ?>
+                </div>
+            </div>
+        </div>
         <div class="form-group"><?php echo $this->Form->input('asin',array('class'=>'form-control' ) ) ?></div>
+
     </div>
 
 
