@@ -23,9 +23,81 @@
 
         <a href="javascript:void(0)" id="emailTemFormPrev" class="btn btn-primary">Previous</a><br><br>
         <h4>Second Step</h4>
-        <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('message',array('class'=>'form-control','required'=>'required', 'id'=>'editor1' ) ) ?></div>
+
+        <?php
+            $options_imd = array(
+                '1 days' => '1 days',
+                '2 days' => '2 days',
+                '3 days' => '3 days',
+                '4 days' => '4 days',
+                '5 days' => '5 days',
+                '6 days' => '6 days',
+                '7 days' => '7 days',
+                '8 days' => '8 days',
+                '9 days' => '9 days',
+                '10 days' => '10 days',
+                '11 days' => '11 days',
+                '12days' => '12 days',
+                '13 days' => '13 days',
+                '14 days' => '14 days',
+                '15 days' => '15 days',
+                '16 days' => '16 days',
+                '17 days' => '17 days',
+                '18 days' => '18 days',
+                '19 days' => '19 days',
+                '20 days' => '20 days',
+                '21 days' => '21 days',
+                '4 weeks' => '4 weeks',
+                '5 weeks' => '5 weeks',
+                '6 weeks' => '6 weeks',
+                '7 weeks' => '7 weeks',
+                '8 weeks' => '8 weeks',
+                '9 weeks' => '9 weeks',
+                '10 weeks' => '10 weeks'
+
+            );
+
+        $options_day = array(
+            '1 days' => '1 days',
+            '2 days' => '2 days',
+            '3 days' => '3 days',
+            '4 days' => '4 days',
+            '5 days' => '5 days',
+            '6 days' => '6 days',
+            '7 days' => '7 days',
+            '8 days' => '8 days',
+            '9 days' => '9 days',
+            '10 days' => '10 days',
+            '11 days' => '11 days',
+            '12 days' => '12 days',
+            '13 days' => '13 days',
+            '14 days' => '14 days',
+            '15 days' => '15 days',
+            '16 days' => '16 days',
+            '17 days' => '17 days',
+            '18 days' => '18 days',
+            '19 days' => '19 days',
+            '20 days' => '20 days',
+            '21 days' => '21 days'
+
+        );
+
+        $options_del = array(
+            'confirmed' => 'confirmed',
+            'shipped' => 'shipped',
+            "marked 'Out For Delivery" => "marked 'Out For Delivery",
+            'delivered' => 'delivered',
+            'positive feedback is left' => 'positive feedback is left',
+            'returned' => 'returned'
+
+
+        );
+
+        ?>
+        <div class="form-group"><?php echo $this->Form->input('immediately',array('options'=> $options_imd,'empty'=>'immediately','class'=>'form-control')) ?></div>
+        <div class="form-group"><?php echo $this->Form->input('delivered',array('options'=>$options_del,'empty'=>'delivered','class'=>'form-control')) ?></div>
+        <div class="form-group"><?php echo $this->Form->input('day',array('options'=>$options_day,'label'=>'only if the delivery takes less than','class'=>'form-control' ) ) ?></div>
+        <div class="form-group"><?php echo $this->Form->input('asin',array('class'=>'form-control' ) ) ?></div>
     </div>
 
 
