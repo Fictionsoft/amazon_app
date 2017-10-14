@@ -3,5 +3,7 @@
     echo $this->Form->create('EmailTemplate',array('type' => 'file'));
     echo $this->element('../EmailTemplates/elements');
     echo $this->Form->input('id', array('type' => 'hidden'));
-    echo '<div class="submit_button">'.$this->Form->end(array('label'=>'Update','class'=>'btn btn-primary')).'</div>';
+    echo '<div id="emailTemEdit" class="submit_button" style="display: none" >
+        <a href="javascript:void(0)" id="emailTemFormPrev" class="btn btn-primary">Previous</a> &nbsp; &nbsp;';
+    echo $this->Form->end(array('label'=>'Update','class'=>'btn btn-primary','div'=>false)).'</div>';
 ?>

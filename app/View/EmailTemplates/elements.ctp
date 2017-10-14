@@ -20,8 +20,6 @@
 
 
     <div id="emailTemFormStp-2" style="display:none">
-
-        <a href="javascript:void(0)" id="emailTemFormPrev" class="btn btn-primary">Previous</a><br><br>
         <h4>Second Step</h4>
 
         <?php
@@ -47,38 +45,38 @@
                 '19' => '19 days',
                 '20' => '20 days',
                 '21' => '21 days',
-                '4*7' => '4 weeks',
-                '5*7' => '5 weeks',
-                '6*7' => '6 weeks',
-                '7*7' => '7 weeks',
-                '8*7' => '8 weeks',
-                '9*7' => '9 weeks',
-                '10*7' => '10 weeks'
+                "28" => "4 weeks",
+                "35" => "5 weeks",
+                "42" => "6 weeks",
+                "49" => "7 weeks",
+                "56" => "8 weeks",
+                "63" => "9 weeks",
+                "70" => "10 weeks"
 
             );
 
             $options_day = array(
-            '1 days' => '1 days',
-            '2 days' => '2 days',
-            '3 days' => '3 days',
-            '4 days' => '4 days',
-            '5 days' => '5 days',
-            '6 days' => '6 days',
-            '7 days' => '7 days',
-            '8 days' => '8 days',
-            '9 days' => '9 days',
-            '10 days' => '10 days',
-            '11 days' => '11 days',
-            '12 days' => '12 days',
-            '13 days' => '13 days',
-            '14 days' => '14 days',
-            '15 days' => '15 days',
-            '16 days' => '16 days',
-            '17 days' => '17 days',
-            '18 days' => '18 days',
-            '19 days' => '19 days',
-            '20 days' => '20 days',
-            '21 days' => '21 days'
+            '1' => '1 days',
+            '2' => '2 days',
+            '3' => '3 days',
+            '4' => '4 days',
+            '5' => '5 days',
+            '6' => '6 days',
+            '7' => '7 days',
+            '8' => '8 days',
+            '9' => '9 days',
+            '10' => '10 days',
+            '11' => '11 days',
+            '12' => '12 days',
+            '13' => '13 days',
+            '14' => '14 days',
+            '15' => '15 days',
+            '16' => '16 days',
+            '17' => '17 days',
+            '18' => '18 days',
+            '19' => '19 days',
+            '20' => '20 days',
+            '21' => '21 days'
         );
 
         $options_del = array(
@@ -91,6 +89,8 @@
 
 
         );
+
+
 
         ?>
         <div class="row">
@@ -124,11 +124,15 @@
         $("#emailTemFormNext").click(function(){
             $("#emailTemFormStp-2").show("slow");
             $("#emailTemFormStp-1").hide("slow");
+            $("#emailTemEdit").show();
+            $("#emailTemplateAdd").show();
         });
 
         $("#emailTemFormPrev").click(function(){
             $("#emailTemFormStp-1").show("slow");
             $("#emailTemFormStp-2").hide("slow");
+            $("#emailTemEdit").hide();
+            $("#emailTemplateAdd").hide();
 
         });
 

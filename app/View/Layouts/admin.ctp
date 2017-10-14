@@ -139,7 +139,6 @@
                                     <a>[[purchase-date]]</a>
                                 </li>
 
-
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

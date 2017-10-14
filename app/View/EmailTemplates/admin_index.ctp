@@ -5,7 +5,7 @@
             <?php
             echo $this->Html->link(
                 'Add new',
-                '/admin/EmailTemplates/create',
+                '/admin/emailtemplates/create',
                 array('class' => 'btn btn-primary')
             );
             ?>
