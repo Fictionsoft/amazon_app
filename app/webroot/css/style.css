@@ -689,6 +689,15 @@ table > tbody > .keyword_row > .td_keyword .td_action{
 }
 
 
+@media (min-width: 768px){
+
+    .sidebar {
+        z-index: 1;
+        position: static;
+        width: 100%;
+        margin-top:0px;
+    }
+}
 
 
 

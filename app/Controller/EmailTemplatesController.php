@@ -17,7 +17,7 @@ class EmailTemplatesController extends AppController {
      * @param null
      * @return null
      */
-    public function admin_index() {
+    public function index() {
         //$this->autoRender = false;
         if(!empty($this->data)){
             $this->Session->write('EmailTemplateFilter', $this->request->data['EmailTemplate']);
@@ -40,7 +40,7 @@ class EmailTemplatesController extends AppController {
      * @param null
      * @return null
      */
-    public function admin_create() {
+    public function create() {
 
         if ($this->request->is('post')) {
 
@@ -69,7 +69,7 @@ class EmailTemplatesController extends AppController {
                 //$this->getEmailContent($id);
 
                 $this->Session->setFlash("Email template has been successfully added",'default',array('class'=>'alert alert-success'));
-                $this->redirect(array('action' => 'admin_index'));
+                $this->redirect(array('action' => 'index'));
             }
 
             $this->Session->setFlash("Unable to save !",'default',array('class'=>'alert alert-danger'));
@@ -85,7 +85,7 @@ class EmailTemplatesController extends AppController {
      * @param null $id
      * @return null
      */
-    public function admin_update($id = null) {
+    public function update($id = null) {
         if (!$id) {
             throw new NotFoundException(__('Invalid request !'));
         }
@@ -121,7 +121,7 @@ class EmailTemplatesController extends AppController {
 
            if ($this->EmailTemplate->save($this->request->data)) {
                 $this->Session->setFlash("Email template has been updated.",'default',array('class'=>'alert alert-success'));
-                $this->redirect(array('action' => 'admin_index'));
+                $this->redirect(array('action' => 'index'));
            }
 
             $this->Session->setFlash("Unable to update !",'default',array('class'=>'alert alert-danger'));
@@ -139,7 +139,7 @@ class EmailTemplatesController extends AppController {
      * @param null $id
      * @return redirect to index
      */
-    public function admin_delete($id = null) {
+    public function delete($id = null) {
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
         }
@@ -147,7 +147,7 @@ class EmailTemplatesController extends AppController {
         if ($this->EmailTemplate->delete($id)) {
             $this->Session->setFlash("Email Template #$id has been successfully deleted !",'default',array('class'=>'alert alert-success'));
 
-            $this->redirect(array('action' => 'admin_index'));
+            $this->redirect(array('action' => 'index'));
         }
     }
 

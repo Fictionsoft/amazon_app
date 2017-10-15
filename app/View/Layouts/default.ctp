@@ -12,6 +12,7 @@
     echo $this->Html->css('bootstrap.min.3.0.3');
     echo $this->Html->css('font-awesome.min');
     echo $this->Html->css('jquery-ui');
+    echo $this->Html->css('sb-admin-2');
     echo $this->Html->css('style');
     echo $this->Html->script('jquery');
     echo $this->Html->script('jquery.validate');
@@ -42,6 +43,8 @@ echo "\n" . '<script type="text/javascript">var ACTION = \'' . $this->action . '
 
 <?php echo $this->Html->script('bootstrap.min.3.0.3') ?>
 <?php echo $this->Html->script('jquery-ui'); ?>
+<?php echo $this->Html->script('plugins/metisMenu/metisMenu.min'); ?>
+<?php echo $this->Html->script('sb-admin-2'); ?>
 <?php echo $this->Html->script('custom') ?>
 
 <?php echo $this->Html->script('iframeResizer.min') ?>
