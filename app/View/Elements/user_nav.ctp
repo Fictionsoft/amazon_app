@@ -139,13 +139,7 @@
 
 <?php } ?>
 
-
-
-
-
 <div class="user_nav">
-
-
 
     <ul>
         <?php if( $this->Common->isAdmin($this->Session->read('Auth.User.role_id'))){ ?>
