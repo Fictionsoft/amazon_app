@@ -19,7 +19,6 @@
                             echo '<div class="text-center">'. $this->Html->link('Click here to Login','/users/login').'</div>';
 
                             echo $this->Form->end();
-
                         ?>
                     </div>
                 </div>
