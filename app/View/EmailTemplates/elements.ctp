@@ -18,7 +18,6 @@
 
     </div>
 
-
     <div id="emailTemFormStp-2" style="display:none">
         <h4>Second Step</h4>
 
@@ -89,8 +88,6 @@
 
 
         );
-
-
 
         ?>
         <div class="row">

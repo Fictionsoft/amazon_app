@@ -10,13 +10,14 @@
                     <div class="form_inner">
                         <?php
                             echo $this->Form->create('User',array('url'=>'signup','type'=>'file'));
-                            echo $this->element('../Users/front_elements');
-                            echo '<div class="btn_content">';
-                            echo '<br>';
-                            echo $this->Html->link('Click here to Login','/Users/login');
-                            echo '<button type="submit" class="custom_btn pull-right">Signup</button>';
+                            echo $this->element('../users/front_elements');
+                            echo '<div id="singupAddBtn" class="btn_content form-group" style="display:none">
+                            <button type="button" id="singupFormPrev" class="custom_btn">Previous</button> &nbsp; &nbsp;
+                            <button type="submit" class="custom_btn pull-right">Signup</button>
+                            </div>';
 
-                            echo '</div>';
+                            echo '<div class="text-center">'. $this->Html->link('Click here to Login','/users/login').'</div>';
+
                             echo $this->Form->end();
 
                         ?>

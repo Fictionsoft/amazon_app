@@ -23,12 +23,12 @@
                     <div class="col-sm-5">
                         <div class="header_right">
                             <?php if ($this->Session->check('Auth.User')){
-                                echo '<a href="'.$this->Html->url('/Users/logout').'"> Logout</a>';
-                                echo ' <a href="'.$this->Html->url('/Users/user_dashboard').'">Welcome '.$this->Session->read('Auth.User.first_name').' '.$this->Session->read('Auth.User.last_name').'</a>';
+                                echo '<a href="'.$this->Html->url('/users/logout').'"> Logout</a>';
+                                echo ' <a href="'.$this->Html->url('/users/user_dashboard').'">Welcome '.$this->Session->read('Auth.User.first_name').' '.$this->Session->read('Auth.User.last_name').'</a>';
                             }else{
 
-                                echo '<a href="'.$this->Html->url('/Users/login').'"><span>Login</span></a>';
-                                echo '<a href="'.$this->Html->url('/Users/signup').'"><span>Signup</span></a>';
+                                echo '<a href="'.$this->Html->url('/users/login').'"><span>Login</span></a>';
+                                echo '<a href="'.$this->Html->url('/users/signup').'"><span>Signup</span></a>';
 
                              } ?>
                         </div>
