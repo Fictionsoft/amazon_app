@@ -82,7 +82,33 @@ class UsersController extends AppController {
             $this->request->data['User']['photo'] = $photo;*/
             //END: photo upload
 
+
+
+            $marketplace_id = $this->request->data['User']['marketplace_id'];
+            $seller_id = $this->request->data['User']['seller_id'];
+            $access_key_id = $this->request->data['User']['access_key_id'];
+            $secret_access_key = $this->request->data['User']['secret_access_key'];
+            $msw_auth_token = $this->request->data['User']['msw_auth_token'];
+
+            $seller = array('Seller'=>array(
+                'marketplace_id'=>$marketplace_id,
+                'seller_id'=>$seller_id,
+                'access_key_id'=>$access_key_id,
+                'secret_access_key'=>$secret_access_key,
+                'msw_auth_token'=>$msw_auth_token
+
+                )
+            );
+
+            $this->loadModel('Seller');
+            $this->Seller->create();
+            $this->Seller->save($seller);
+
+            $seller_id = $this->Seller->getLastInsertId();
+
+
             $this->User->create();
+            $this->request->data['User']['seller_id'] = $seller_id;
             $this->request->data['User']['status'] = '1';
             $email = $this->request->data['User']['email'];
             $this->request->data['User']['username'] = $email;
