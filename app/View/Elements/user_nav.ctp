@@ -142,7 +142,7 @@
 <div class="user_nav">
 
     <ul>
-        <?php if( $this->Common->isAdmin($this->Session->read('Auth.User.role_id'))){ ?>
+        <?php if( $this->Common->isAdmin($this->Session->read('Auth.User.role_id')) or $this->Common->isSeller($this->Session->read('Auth.User.role_id'))){ ?>
 
         <li><a href="<?php echo $this->Html->url('/users/user_dashboard'); ?>"><i class="fa fa-dashboard"></i>Dashboard</a></li>
         <li><a href="<?php echo $this->Html->url('/products/product_finder'); ?>"><i class="fa fa-search"></i>Product Finder</a></li>

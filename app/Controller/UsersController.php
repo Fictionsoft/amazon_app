@@ -102,12 +102,12 @@ class UsersController extends AppController {
             $seller_id = $this->Seller->getLastInsertId();
 
             $this->User->create();
+
+            $this->request->data['User']['role_id'] = 4;
             $this->request->data['User']['seller_id'] = $seller_id;
             $this->request->data['User']['status'] = '1';
             $email = $this->request->data['User']['email'];
             $this->request->data['User']['username'] = $email;
-
-            pr($this->request->data);die;
 
             $user = $this->request->data;
 

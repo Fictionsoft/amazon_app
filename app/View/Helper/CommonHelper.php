@@ -93,6 +93,12 @@ class CommonHelper extends AppHelper {
         }
     }
 
+    function isSeller( $user_role ){
+        if( $user_role == 4 ){ // Seller id
+            return true;
+        }
+    }
+
     function getJobWorker($requirement_id){
         $assign_jobs = $this->requestAction('AssignJobs/get_jobs_and_workers/'.$requirement_id );
         $html = '<div>

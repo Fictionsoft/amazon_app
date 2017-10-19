@@ -28,7 +28,6 @@ echo '</div>';
 
 
 echo '<div id="frontSingupPart-2" class="front_singup_part_2" style="display:none">';
-    /*echo $this->Form->input('detect',array('type'=>'hidden','value'=>'seller_data','div'=>false));*/
     echo '<div class="form-group">'.$this->Form->input('marketplace_id',array('type'=>'text','class' => 'form-control','label'=>'Marketplace id<em class="mandatory">*</em>')).'</div>';
     echo '<div class="form-group">'.$this->Form->input('seller_id',array('type'=>'text','class' => 'form-control','label'=>'Seller id<em class="mandatory">*</em>')).'</div>';
     echo '<div class="form-group">'.$this->Form->input('access_key_id',array('type'=>'text','class' => 'form-control','label'=>'Access key id<em class="mandatory">*</em>')).'</div>';
