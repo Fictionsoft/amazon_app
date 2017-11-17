@@ -699,6 +699,10 @@ table > tbody > .keyword_row > .td_keyword .td_action{
     }
 }
 
+.cke_contents{
+    height: 500px !important;
+}
+
 
 
 

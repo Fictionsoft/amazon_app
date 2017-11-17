@@ -44,9 +44,10 @@ echo '</div>';
             $("#frontSingupPart-2").show("slow");
             $("#frontSingupPart-1").hide("slow");
             $("#singupAddBtn").show();
-            });
+            $('html, body').animate({scrollTop: '0px'}, 300);
+        });
 
-            $("#singupFormPrev").click(function(){
+        $("#singupFormPrev").click(function(){
             $("#frontSingupPart-1").show("slow");
             $("#frontSingupPart-2").hide("slow");
             $("#singupAddBtn").hide();

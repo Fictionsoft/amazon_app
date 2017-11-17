@@ -44,23 +44,6 @@ class EmailTemplatesController extends AppController {
 
         if ($this->request->is('post')) {
 
-            // START : File upload
-            $image = $this->request->data['EmailTemplate']['image'];
-
-            if ($image['name']) {
-                $result = $this->FileHandler->uploadImage($image);
-                if ($result) {
-                    $image = $this->FileHandler->_uploadimgname;
-                }else {
-                    $image = '';
-                }
-            }else{
-                $image = '';
-            }
-            $this->request->data['EmailTemplate']['image'] = $image;
-            //END: file upload
-
-
             $this->EmailTemplate->create();
 
             if ($this->EmailTemplate->save($this->request->data)) {
@@ -103,22 +86,6 @@ class EmailTemplatesController extends AppController {
         if ($this->request->is(array('EmailTemplate', 'put'))) {
            $this->EmailTemplate->id = $id;
 
-            // START : File upload
-            $image = $this->request->data['EmailTemplate']['image'];
-
-            if ($image['name']) {
-                $result = $this->FileHandler->uploadImage($image);
-                if ($result) {
-                    $image = $this->FileHandler->_uploadimgname;
-                }else {
-                    $image = '';
-                }
-            }else{
-                $image = $email_template['EmailTemplate']['image'];
-            }
-            $this->request->data['EmailTemplate']['image'] = $image;
-            //END: file upload
-
            if ($this->EmailTemplate->save($this->request->data)) {
                 $this->Session->setFlash("Email template has been updated.",'default',array('class'=>'alert alert-success'));
                 $this->redirect(array('action' => 'index'));
@@ -130,8 +97,6 @@ class EmailTemplatesController extends AppController {
         if (!$this->request->data) {
             $this->request->data = $email_template;
         }
-
-        //$this->set('message', $email_template);
     }
 
 
@@ -210,5 +175,7 @@ class EmailTemplatesController extends AppController {
     // CK Editor: End
 
 
+    function test(){
 
+    }
 }

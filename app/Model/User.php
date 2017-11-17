@@ -9,6 +9,10 @@ class User extends AppModel {
         'Role'              => array(
             'className'     => 'Role',
             'foreingKey'    => 'role_id'
+        ),
+        'Seller'              => array(
+            'className'     => 'Seller',
+            'foreingKey'    => 'seller_id'
         )
     );
 

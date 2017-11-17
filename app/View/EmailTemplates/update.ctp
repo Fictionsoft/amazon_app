@@ -6,7 +6,7 @@
             </div>
 
             <div class="col-sm-9">
-                <h3>Update Email Template</h3>
+                <h3>Update Message</h3>
                 <?php
                     echo $this->Form->create('EmailTemplate',array('type' => 'file'));
                     echo $this->element('../EmailTemplates/elements');
@@ -15,7 +15,6 @@
                         <a href="javascript:void(0)" id="emailTemFormPrev" class="btn btn-primary">Previous</a> &nbsp; &nbsp;';
                     echo $this->Form->end(array('label'=>'Update','class'=>'btn btn-primary','div'=>false)).'</div>';
                 ?>
-
             </div>
         </div>
     </div>

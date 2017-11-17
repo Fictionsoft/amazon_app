@@ -333,14 +333,23 @@ class MWSClient{
      * @param string $FulfillmentChannel
      * @return array
      */
-    public function ListOrders(DateTime $from, $allMarketplaces = false, $states = [
+    public function ListOrders(DateTime $from, DateTime $to, $allMarketplaces = false, $states = [
         'Unshipped', 'PartiallyShipped'
     ], $FulfillmentChannel = 'MFN')
     {
-        $query = [
+        /*$query = [
             'CreatedAfter' => gmdate(self::DATE_FORMAT, $from->getTimestamp()),
+            'CreatedBefore' => gmdate(self::DATE_FORMAT, $to->getTimestamp()),
+            //'FulfillmentChannel.Channel.1' => $FulfillmentChannel
+        ];*/
+
+        $query = [
+            'CreatedAfter' => date(self::DATE_FORMAT, $from->getTimestamp()),
+            'CreatedBefore' => date(self::DATE_FORMAT, $to->getTimestamp()),
             //'FulfillmentChannel.Channel.1' => $FulfillmentChannel
         ];
+
+        //pr($query);die;
 
         /*$counter = 1;
         foreach ($states as $status) {

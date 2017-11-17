@@ -10,10 +10,9 @@
 
                 <div class="email_temp_head form-group">
                     <div class="row">
-                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"><h3>Messages</h3></div>
                         <div class="col-sm-4"></div>
                         <div class="col-sm-4">
-
                             <?php
                             echo $this->Html->link(
                                 'Add new',
@@ -21,6 +20,15 @@
                                 array('class' => 'btn btn-primary')
                             );
                             ?>
+
+                            <?php
+                            echo $this->Html->link(
+                                'Send Message',
+                                '/Orders',
+                                array('class' => 'btn btn-primary')
+                            );
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -34,7 +42,7 @@
                     <table class="table table-hover">
                     <tr>
                         <th>#Id</th>
-                        <th><?php echo $paginator->sort('template_name')?></th>
+                        <th><?php echo $paginator->sort('template_name', 'Title')?></th>
                         <th><?php echo $paginator->sort('subject')?></th>
                         <th><?php echo $paginator->sort('status') ?></th>
                         <th>Action</th>
@@ -64,13 +72,21 @@
                     ?>
                     </table>
 
-                    <p>
-                        <?php
-                        echo $this->Paginator->counter(array(
-                            'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-                        ));
-                        ?>
-                    </p>
+                    <div style="height: 60px;">&nbsp;</div>
+
+                    <h3>Testing</h3>
+
+
+
+                    <?php
+                        echo $this->Form->create('EmailTemplate',array('type' =>'file', 'url'=>array('controller'=>'orders', 'action'=>'create' ) ) );
+                        echo $this->Form->input('date_from',array('class'=>'form-control date','required'=>'required', 'placeholder'=>'2017-11-01' ) );
+                        echo $this->Form->input('date_to',array('class'=>'form-control date','required'=>'required', 'placeholder'=>'2017-11-03' ) );
+                        echo $this->Form->end(array('label'=>'Set Order','class'=>'btn btn-primary', 'div'=>false));
+                    ?>
+
+                    <div style="height: 300px;margin-bottom: 200px;"> </div>
+
 
                     <div class="pagination">
                         <ul>

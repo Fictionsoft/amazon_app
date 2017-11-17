@@ -1,9 +1,8 @@
-<?php if($this->params['controller']=='emailtemplates' and ($this->params['action']=='create' or $this->params['action']=='update') ){ ?>
+<?php if(strtolower($this->params['controller'])=='emailtemplates' and ($this->params['action']=='create' or $this->params['action']=='update') ){ ?>
 
 <div class="navbar-default sidebar front_end_sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
-
             <li>
                 <a href="#"> Buyer Info<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -16,11 +15,8 @@
                     <li>
                         <a>[[buyer-email]]</a>
                     </li>
-
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
-
             <li>
                 <a href="#">Order Info<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -45,9 +41,9 @@
                     <li>
                         <a>[[price-shipping]]</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a> [[condition-note]]</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a>[[recipient]]</a>
                     </li>
@@ -80,12 +76,12 @@
                     <li>
                         <a>[[ship-country]]</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a>[[carrier]]</a>
                     </li>
                     <li>
                         <a>[[tracking-number]]</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a>[[estimated-arrival]]</a>
                     </li>
@@ -112,18 +108,18 @@
                     <li>
                         <a>[[product-review-link]]</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a>[[tracking-link]]</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a>[[store-link]]</a>
                     </li>
                     <li>
                         <a>[[store-link-alt]]</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a>[[unsubscribe-link]]</a>
-                    </li>
+                    </li>-->
 
                 </ul>
                 <!-- /.nav-second-level -->
@@ -133,8 +129,7 @@
     <!-- /.sidebar-collapse -->
 </div>
 
-    <div style="height: 2px; background:#ddd; margin-bottom: 45px;"></div>
-    <div style="height: 1px; background:#ddd;"></div>
+    <div style="height: 2px; background:#ddd; margin-bottom: 100px;"></div>
 
 
 <?php } ?>
@@ -149,7 +144,7 @@
         <li><a href="<?php echo $this->Html->url('/products/product_evaluator');?>"><i class="fa fa-tasks"></i>Product Evaluator</a></li>
         <li><a href="<?php echo $this->Html->url('/productRanks/ranking_tracker'); ?>"><i class="fa fa-envelope"></i>Ranking Tracker</a></li>
         <li><a href="<?php echo $this->Html->url('/products/keyword_cloud'); ?>"><i class="fa fa-cloud"></i>Keyword Cloud</a></li>
-        <li><a href="<?php echo $this->Html->url('/emailtemplates'); ?>"><i class="fa fa-envelope"></i>Email Templates</a></li>
+        <li><a href="<?php echo $this->Html->url('/EmailTemplates'); ?>"><i class="fa fa-envelope"></i>Messages</a></li>
         <?php } ?>
 
         <?php if($this->Common->isWorker($this->Session->read('Auth.User.role_id'))){ ?>

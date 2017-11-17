@@ -38,6 +38,12 @@ $(function() {
         dateFormat: 'dd/mm/yy'
     });
 
+    $( ".date" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'yy-mm-dd'
+    });
+
     //$( ".date_picker").readOnly(true);
 
 });

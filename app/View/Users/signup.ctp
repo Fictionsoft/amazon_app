@@ -4,7 +4,7 @@
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="form_content">
                     <div class="form_title">
-                        <h2>Signup</h2>
+                        <h2>Seller Signup</h2>
                         <?php echo $this->Session->flash() ?>
                     </div>
                     <div class="form_inner">

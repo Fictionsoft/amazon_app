@@ -1,16 +1,9 @@
 <?php echo $this->Html->script('/ckeditor/ckeditor') ?>
     <div id="emailTemFormStp-1">
-        <?php /*echo $this->Form->input('file_name',array('type'=>'hidden','value'=>$name))*/?>
-        <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
-        <div class="form-group"><?php echo $this->Form->input('message',array('class'=>'form-control','required'=>'required', 'id'=>'editor1' ) ) ?></div>
-        <!--
-        <?php /*if(!empty($this->request->data['EmailTemplate']['id'])){ */?>
-            <div class="form-group"><?php /*echo $this->Html->image($this->element( 'default_photo_selector', array( 'photo'=>$this->data['EmailTemplate']['image'],'dir'=>'emailtemplates' ) ), array('alt' => 'Email template image','width'=>'150')) */?></div>
-        <?php /*} */?>
 
-        <div class="form-group"><?php /*echo $this->Form->input('image',array('type'=>'file')) */?></div>
-        <div class="form-group"><?php /*echo $this->Form->input('url',array('class'=>'form-control','required'=>'required')) */?></div>-->
+        <div class="form-group"><?php echo $this->Form->input('template_name',array('class'=>'form-control','required'=>'required', 'label' => 'Title')) ?></div>
+        <div class="form-group"><?php echo $this->Form->input('subject',array('class'=>'form-control','required'=>'required')) ?></div>
+        <div class="form-group"><?php echo $this->Form->input('message',array('class'=>'form-control cke_contents','required'=>'required', 'id'=>'editor1' ) ) ?></div>
 
         <div class="form-group is-publish"><?php echo $this->Form->input('status') ?></div>
 
@@ -19,8 +12,6 @@
     </div>
 
     <div id="emailTemFormStp-2" style="display:none">
-        <h4>Second Step</h4>
-
         <?php
             $options_imd = array(
                 '1' => '1 days',
@@ -79,41 +70,36 @@
         );
 
         $options_del = array(
-            'confirmed' => 'confirmed',
-            'shipped' => 'shipped',
-            "marked 'Out For Delivery" => "marked 'Out For Delivery",
-            'delivered' => 'delivered',
-            'positive feedback is left' => 'positive feedback is left',
-            'returned' => 'returned'
-
-
+            'Pending'                   => 'Pending',
+            'Shipped'                   => 'Shipped',
+            'Confirmed'                 => 'Confirmed',
+            'Cancelled'                 => 'Cancelled',
+            'marked Out For Delivery'   => 'marked Out For Delivery',
+            'Delivered'                 => 'Delivered',
+            'Positive feedback is left' => 'Positive feedback is left',
+            'Returned'                  => 'Returned'
         );
-
         ?>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="form-group">
-                    <?php echo $this->Form->input('immediately',array('options'=> $options_imd,'empty'=>'immediately','class'=>'form-control')) ?>
+                    <?php echo $this->Form->input('immediately',array('options'=> $options_imd,'empty'=>'Select','class'=>'form-control', 'required' => true )) ?>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('delivered',array('options'=>$options_del,'empty'=>'Select', 'class'=>'form-control', 'required' => true )) ?>
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <!--<div class="col-sm-4">
                 <div class="form-group">
-                    <?php echo $this->Form->input('delivered',array('options'=>$options_del,'empty'=>'delivered','class'=>'form-control')) ?>
+                    <?php /*echo $this->Form->input('day',array('options'=>$options_day,'label'=>'Only if the delivery takes less than', 'empty'=>'Select', 'class'=>'form-control' ) ) */?>
                 </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <?php echo $this->Form->input('day',array('options'=>$options_day,'label'=>'Only if the delivery takes less than','class'=>'form-control' ) ) ?>
-                </div>
-            </div>
+            </div>-->
         </div>
-        <div class="form-group"><?php echo $this->Form->input('asin',array('class'=>'form-control' ) ) ?></div>
-
+        <div class="form-group"><?php echo $this->Form->input('asin',array('label'=>'ASIN(s)', 'placeholder' => 'B01NBOUNHD,B01NBOUNHD', 'class'=>'form-control' ) ) ?></div>
     </div>
-
-
 <script>
 
     // Email template form step next < id = "email-tem-next" >
@@ -123,6 +109,7 @@
             $("#emailTemFormStp-1").hide("slow");
             $("#emailTemEdit").show();
             $("#emailTemplateAdd").show();
+            $('html, body').animate({scrollTop: '0px'}, 300);
         });
 
         $("#emailTemFormPrev").click(function(){

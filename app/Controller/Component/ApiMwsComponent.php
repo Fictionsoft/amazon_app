@@ -25,12 +25,13 @@ class ApiMwsComponent extends Component {
         $this->controller = $controller;
     }
 
-    function getListOrders(){
+    function getListOrders($from_date = '2017-10-10', $to_date = '2017-10-13'){
+        $seller = $this->controller->Session->read('Auth.User.Seller');
         $client = new MCS\MWSClient([
-            'Marketplace_Id' => 'ATVPDKIKX0DER',
-            'Seller_Id' => 'A10YV6NTBY6VOS',
-            'Access_Key_ID' => 'AKIAJIEKAODR7KSYYMXQ',
-            'Secret_Access_Key' => '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',
+            'Marketplace_Id'            => $seller['marketplace_id'],
+            'Seller_Id'                 => $seller['seller_id'],
+            'Access_Key_ID'             => $seller['access_key_id'],
+            'Secret_Access_Key'         => $seller['secret_access_key'],
             'MWSAuthToken' => '' // Optional. Only use this key if you are a third party user/developer
         ]);
 
@@ -43,17 +44,20 @@ class ApiMwsComponent extends Component {
 
 
         //$t1 = date("c", time()-1*24*60*60);
-        $fromDate = new DateTime('2017-09-20');
-        $orders = $client->ListOrders($fromDate, true);
+        $fromDate = new DateTime($from_date);
+        $toDate = new DateTime($to_date);
+        $orders = $client->ListOrders($fromDate, $toDate, true);
+
+
         $orders_new = array();
-        foreach ($orders as $order) {
+        foreach ($orders as $key => $order) {
             $items = $client->ListOrderItems($order['AmazonOrderId']);
-            $orders_new[]['order'] = json_encode(array('order' => $order, 'items' => $items));
+            $orders_new[$key]['order'] = json_encode(array('order' => $order, 'items' => $items));
+            $orders_new[$key]['order_id'] = $order['AmazonOrderId'];
+            $orders_new[$key]['purchase_date'] = $order['PurchaseDate'];
+            $orders_new[$key]['order_status'] = $order['OrderStatus'];
         }
         return $orders_new;
     }
-
-
-
 }
 
