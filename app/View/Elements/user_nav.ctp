@@ -145,6 +145,9 @@
         <li><a href="<?php echo $this->Html->url('/productRanks/ranking_tracker'); ?>"><i class="fa fa-envelope"></i>Ranking Tracker</a></li>
         <li><a href="<?php echo $this->Html->url('/products/keyword_cloud'); ?>"><i class="fa fa-cloud"></i>Keyword Cloud</a></li>
         <li><a href="<?php echo $this->Html->url('/EmailTemplates'); ?>"><i class="fa fa-envelope"></i>Messages</a></li>
+
+        <li><a href="<?php echo $this->Html->url('/schedules'); ?>"><i class="fa fa-clock-o"></i>Schedule</a></li>
+
         <?php } ?>
 
         <?php if($this->Common->isWorker($this->Session->read('Auth.User.role_id'))){ ?>

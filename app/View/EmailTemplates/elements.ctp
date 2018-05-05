@@ -98,7 +98,23 @@
                 </div>
             </div>-->
         </div>
-        <div class="form-group"><?php echo $this->Form->input('asin',array('label'=>'ASIN(s)', 'placeholder' => 'B01NBOUNHD,B01NBOUNHD', 'class'=>'form-control' ) ) ?></div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control date" name="start_date" placeholder="DD/MM/YY" required="required" value="<?php echo '' ?>">
+                    <span class="input-group-addon">
+                        <?php echo $this->Html->image('/css/admin_styles/images/icon-calender.png') ?>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('asin',array('label'=>'ASIN(s)', 'placeholder' => 'B01NBOUNHD,B01NBOUNHD', 'class'=>'form-control' ) ) ?>
+                </div>
+            </div>
+        </div>
+
     </div>
 <script>
 

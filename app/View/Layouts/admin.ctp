@@ -20,7 +20,7 @@
         'jquery-ui',
         'admin_custom.css?v='.$version,
         'plugins/morris',
-        'font-awesome.min'
+        'font-awesome-test.min'
     ));
 
     echo $this->fetch('meta');
